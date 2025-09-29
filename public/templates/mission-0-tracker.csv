@@ -1,7 +1,0 @@
-id,title,done,notes
-m0-1,Instalar Ubuntu (WSL/dual),false,
-m0-2,Instalar ROS2,false,
-m0-3,Configurar GitHub y SSH,false,
-m0-4,Primer PR en repositorio de práctica,false,
-
-
