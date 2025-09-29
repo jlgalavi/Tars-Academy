@@ -11,7 +11,7 @@ type Module = {
   title: string;
   slug: string;
   idx: number;
-  checkpoints?: { title: string; status: string }[];
+  checkpoints?: { id: string; title: string; status: string; idx: number; module_id: string }[];
 };
 
 const statusStyles: Record<string, string> = {
@@ -27,9 +27,15 @@ export default function Mission() {
     const fetchData = async () => {
       const { data: mods } = await supabase
         .from("modules")
-        .select("id, title, slug, idx, checkpoints(title, status)")
+        .select("id, title, slug, idx, checkpoints(id, title, status, idx, module_id)")
         .order("idx");
-      if (mods) setModules(mods as Module[]);
+      if (mods) {
+        const normalized = (mods as Module[]).map(m => ({
+          ...m,
+          checkpoints: (m.checkpoints ?? []).slice().sort((a, b) => (a.idx ?? 0) - (b.idx ?? 0)),
+        }));
+        setModules(normalized);
+      }
     };
     fetchData();
   }, []);

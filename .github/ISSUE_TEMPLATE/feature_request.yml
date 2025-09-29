@@ -1,0 +1,28 @@
+name: Feature request (Misión)
+description: Solicita/declara una misión o mejora
+labels: ["feature","mission"]
+body:
+  - type: input
+    id: objetivo
+    attributes:
+      label: Objetivo
+      description: ¿Qué se busca conseguir?
+  - type: textarea
+    id: alcance
+    attributes:
+      label: Alcance
+      description: Qué entra / qué no entra
+  - type: textarea
+    id: criterios
+    attributes:
+      label: Criterios de éxito
+      description: Definición de hecho (DoD)
+  - type: textarea
+    id: riesgos
+    attributes:
+      label: Riesgos
+  - type: textarea
+    id: evidencias
+    attributes:
+      label: Evidencias
+      description: URLs a Drive (14_TAREAS/Semana-XX)
