@@ -6,6 +6,7 @@ import TutorialChip from '@/components/tutorial/TutorialChip';
 import Callout from '@/components/tutorial/Callout';
 import TableOfContents from '@/components/tutorial/TableOfContents';
 import TutorialNavigation from '@/components/tutorial/TutorialNavigation';
+import SpaceParticles from '@/components/SpaceParticles';
 
 const tocItems = [
   { id: 'que-es-github', title: '🎯 ¿Qué es y para qué usamos GitHub?', level: 2 },
@@ -43,8 +44,9 @@ export default function GitHubOrganizacion() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-900">
-      <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="min-h-screen relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <SpaceParticles mode="tutorial" intensity={0.5} showLines={false} />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 py-8">
         <div className="flex gap-8">
           {/* Contenido principal */}
           <div className="flex-1 max-w-4xl">
@@ -53,7 +55,7 @@ export default function GitHubOrganizacion() {
               <Breadcrumb 
                 items={[
                   { label: 'Inicio', href: '/' },
-                  { label: 'Tutoriales', href: '/' },
+                  { label: 'Onboarding', href: '/onboarding' },
                   { label: 'GitHub Organizacional UPV-TARS' }
                 ]}
               />

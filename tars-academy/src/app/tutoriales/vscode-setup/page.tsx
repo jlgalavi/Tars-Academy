@@ -6,6 +6,7 @@ import TutorialChip from "@/components/tutorial/TutorialChip";
 import Callout from "@/components/tutorial/Callout";
 import TableOfContents from "@/components/tutorial/TableOfContents";
 import TutorialNavigation from "@/components/tutorial/TutorialNavigation";
+import SpaceParticles from "@/components/SpaceParticles";
 
 export default function VSCodeSetup() {
   const tocItems = [
@@ -27,8 +28,10 @@ export default function VSCodeSetup() {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-900">
-      <div className="container mx-auto max-w-7xl px-6 py-8">
+    <div className="min-h-screen relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      {/* Partículas espaciales optimizadas para tutorial */}
+      <SpaceParticles mode="tutorial" intensity={0.6} showLines={false} />
+      <div className="relative z-10 container mx-auto max-w-7xl px-6 py-8">
         <div className="grid lg:grid-cols-5 xl:grid-cols-4 gap-8">
           <main className="lg:col-span-4 xl:col-span-3 max-w-4xl mx-auto lg:mx-0">
             <Breadcrumb 

@@ -2,19 +2,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Card } from "@/components/cards";
 import { basics } from "./_data/home";
+import SpaceParticles from "@/components/SpaceParticles";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-950">
+    <main className="min-h-screen relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      {/* Partículas espaciales de fondo */}
+      <SpaceParticles mode="landing" intensity={1} showLines={true} />
+
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 min-h-screen flex flex-col justify-center">
-        {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)`,
-            backgroundSize: '20px 20px'
-          }}></div>
-        </div>
+      <section className="relative min-h-screen flex flex-col justify-center z-10">
         
         <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16">
           {/* Título principal */}
@@ -69,7 +66,7 @@ export default function Home() {
       </section>
 
       {/* Sección imagen + texto de presentación */}
-      <section className="bg-slate-900 py-20">
+      <section className="relative py-20 z-10">
         <div className="container mx-auto max-w-6xl px-6">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Columna izquierda - Imagen */}
@@ -97,7 +94,7 @@ export default function Home() {
       </section>
 
       {/* Sección de tutoriales básicos */}
-      <section className="bg-slate-950 py-20">
+      <section className="relative py-20 z-10">
         <div className="container mx-auto max-w-6xl px-6">
           <h2 className="text-4xl font-bold text-white text-center mb-4">
             🧩 Amplía tu aprendizaje
@@ -122,7 +119,7 @@ export default function Home() {
       </section>
 
       {/* Sección del desarrollador */}
-      <section className="bg-slate-800 py-16">
+      <section className="relative py-16 z-10">
         <div className="container mx-auto max-w-4xl px-6 text-center">
           {/* Foto de perfil */}
           <div className="flex justify-center mb-6">
@@ -174,7 +171,7 @@ export default function Home() {
       </section>
 
       {/* Footer institucional */}
-      <footer className="bg-slate-950 py-12">
+      <footer className="relative py-12 z-10">
         <div className="container mx-auto max-w-4xl px-6 text-center">
           {/* Logos */}
           <div className="flex justify-center items-center gap-8 mb-8">

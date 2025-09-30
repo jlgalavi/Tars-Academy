@@ -5,6 +5,7 @@ import TutorialChip from '@/components/tutorial/TutorialChip';
 import Callout from '@/components/tutorial/Callout';
 import TableOfContents from '@/components/tutorial/TableOfContents';
 import TutorialNavigation from '@/components/tutorial/TutorialNavigation';
+import SpaceParticles from '@/components/SpaceParticles';
 
 const tocItems = [
   { id: 'objetivo', title: '🎯 Objetivo', level: 2 },
@@ -22,8 +23,9 @@ const tocItems = [
 
 export default function InstalarUbuntuVM() {
   return (
-    <div className="min-h-screen bg-slate-900">
-      <div className="max-w-7xl mx-auto px-4 py-8">
+    <div className="min-h-screen relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <SpaceParticles mode="tutorial" intensity={0.5} showLines={false} />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 py-8">
         <div className="flex gap-8">
           <div className="flex-1 max-w-4xl">
             <div className="mb-8">
