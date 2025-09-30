@@ -1,3 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
+'use client';
+
 import Breadcrumb from "@/components/tutorial/Breadcrumb";
 import TutorialChip from "@/components/tutorial/TutorialChip";
 import Callout from "@/components/tutorial/Callout";
@@ -6,17 +9,21 @@ import TutorialNavigation from "@/components/tutorial/TutorialNavigation";
 
 export default function VSCodeSetup() {
   const tocItems = [
-    { id: "introduccion", title: "VS Code para robótica", level: 2 },
-    { id: "prerequisitos", title: "Prerequisitos", level: 2 },
-    { id: "instalacion", title: "Instalar VS Code", level: 2 },
-    { id: "extensiones-basicas", title: "Extensiones básicas", level: 2 },
-    { id: "extensiones-robotica", title: "Extensiones para robótica", level: 2 },
-    { id: "configuracion", title: "Configuración personalizada", level: 2 },
-    { id: "atajos-utiles", title: "Atajos de teclado útiles", level: 2 },
-    { id: "debugging", title: "Debugging Python", level: 2 },
-    { id: "tips-productividad", title: "Tips de productividad", level: 2 },
-    { id: "validacion", title: "Validación final", level: 2 },
-    { id: "recursos", title: "Recursos", level: 2 }
+    { id: "introduccion", title: "🎯 Introducción", level: 2 },
+    { id: "prerequisitos", title: "📋 Prerrequisitos", level: 2 },
+    { id: "instalacion", title: "📥 Instalar VS Code", level: 2 },
+    { id: "extensiones-basicas", title: "🧩 Extensiones básicas", level: 2 },
+    { id: "extensiones-robotica", title: "🤖 Extensiones para robótica", level: 2 },
+    { id: "configuracion", title: "⚙️ Configuración personalizada", level: 2 },
+    { id: "atajos-utiles", title: "🌐 Atajos de teclado útiles", level: 2 },
+    { id: "python-setup", title: "� Entorno Python", level: 2 },
+    { id: "cpp-setup", title: "🔌 Desarrollo C++", level: 2 },
+    { id: "entornos-virtuales", title: "🌍 Entornos virtuales", level: 2 },
+    { id: "arduino-setup", title: "⚡ Arduino IDE", level: 2 },
+    { id: "debugging", title: "🔧 Debugging Python", level: 2 },
+    { id: "tips-productividad", title: "🚀 Tips de productividad", level: 2 },
+    { id: "validacion", title: "✅ Validación final", level: 2 },
+    { id: "recursos", title: "📚 Recursos", level: 2 }
   ];
 
   return (
@@ -28,7 +35,7 @@ export default function VSCodeSetup() {
               items={[
                 { label: "Inicio", href: "/" },
                 { label: "Tutoriales", href: "/" },
-                { label: "VS Code Setup" }
+                { label: "Configura tu Setup" }
               ]} 
             />
             
@@ -40,7 +47,7 @@ export default function VSCodeSetup() {
 
             <header className="mb-8">
               <h1 className="text-4xl font-bold text-slate-100 mb-4">
-                💻 VS Code Setup para Robótica
+                💻 Configura tu Setup para Robótica
               </h1>
               <p className="text-lg text-slate-300 leading-relaxed">
                 Configura Visual Studio Code como tu entorno de desarrollo principal para robótica. 
@@ -49,11 +56,17 @@ export default function VSCodeSetup() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mt-6">
-                <button className="btn-primary">
+                <button 
+                  className="btn-primary"
+                  onClick={() => document.getElementById('instalacion')?.scrollIntoView({ behavior: 'smooth' })}
+                >
                   🚀 Empezar ahora
                 </button>
-                <button className="btn-secondary">
-                  📋 Ver requisitos
+                <button 
+                  className="btn-secondary"
+                  onClick={() => document.getElementById('prerequisitos')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                  📋 Ver prerrequisitos
                 </button>
               </div>
             </header>
@@ -95,7 +108,7 @@ export default function VSCodeSetup() {
 
             <section id="prerequisitos">
               <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                📋 Prerequisitos
+                📋 Prerrequisitos
               </h2>
               <div className="space-y-4">
                 <div className="bg-slate-800 p-4 rounded-lg">
@@ -111,7 +124,7 @@ export default function VSCodeSetup() {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-orange-400 mt-1">○</span>
-                      <span><strong>Opcional:</strong> ROS 2 Humble instalado</span>
+                      <span><strong>Opcional:</strong> ROS 2 Jazzy instalado</span>
                     </li>
                   </ul>
                 </div>
@@ -329,7 +342,7 @@ export default function VSCodeSetup() {
                       <div>  \"editor.rulers\": [88],</div>
                       <div>  \"files.autoSave\": \"afterDelay\",</div>
                       <div>  \"terminal.integrated.defaultProfile.linux\": \"bash\",</div>
-                      <div>  \"ros.distro\": \"humble\"</div>
+                      <div>  \"ros.distro\": \"jazzy\"</div>
                       <div>&#125;</div>
                     </div>
                   </div>
@@ -343,7 +356,7 @@ export default function VSCodeSetup() {
                       <div>&#123;</div>
                       <div>  \"python.pythonPath\": \"/usr/bin/python3\",</div>
                       <div>  \"python.autoComplete.extraPaths\": [</div>
-                      <div>    \"/opt/ros/humble/lib/python3.10/site-packages\"</div>
+                      <div>    \"/opt/ros/jazzy/lib/python3.12/site-packages\"</div>
                       <div>  ],</div>
                       <div>  \"cmake.configureOnOpen\": false</div>
                       <div>&#125;</div>
@@ -398,6 +411,430 @@ export default function VSCodeSetup() {
               </div>
             </section>
 
+            <section id="python-setup">
+              <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
+                🐍 Entorno Python
+              </h2>
+              <div className="space-y-6">
+                <p className="text-slate-300">
+                  Python es fundamental para desarrollo web, ciencia de datos, automatización y más. 
+                  Configuramos un entorno básico con VS Code.
+                </p>
+
+                {/* Quick Installation */}
+                <div className="bg-slate-800 p-4 rounded-lg">
+                  <h3 className="text-xl font-semibold text-slate-200 mb-3">Instalación rápida</h3>
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <div>
+                      <h4 className="font-semibold text-slate-200 mb-2 flex items-center gap-2">
+                        🐧 Ubuntu
+                      </h4>
+                      <div className="bg-slate-900 p-2 rounded font-mono text-sm text-green-400">
+                        sudo apt install python3 python3-pip
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-slate-200 mb-2 flex items-center gap-2">
+                        🪟 Windows
+                      </h4>
+                      <div className="bg-slate-900 p-2 rounded font-mono text-sm text-green-400">
+                        winget install Python.Python.3
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-slate-200 mb-2 flex items-center gap-2">
+                        🍎 macOS
+                      </h4>
+                      <div className="bg-slate-900 p-2 rounded font-mono text-sm text-green-400">
+                        brew install python
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* VS Code Extensions */}
+                <div className="bg-slate-800 p-4 rounded-lg">
+                  <h3 className="text-xl font-semibold text-slate-200 mb-3">Extensiones VS Code</h3>
+                  <div className="bg-slate-900 p-3 rounded font-mono text-sm text-green-400">
+                    code --install-extension ms-python.python<br />
+                    code --install-extension ms-python.vscode-pylance
+                  </div>
+                  <p className="text-slate-300 text-sm mt-2">
+                    Estas dos extensiones te dan IntelliSense, debugging y soporte completo para Python.
+                  </p>
+                </div>
+
+                {/* Quick Test */}
+                <div className="bg-gradient-to-r from-green-900/20 to-blue-900/20 border border-green-500/30 p-4 rounded-lg">
+                  <h4 className="font-semibold text-green-400 mb-3">✅ Prueba rápida</h4>
+                  <div className="space-y-2">
+                    <p className="text-slate-300">1. Crea <code className="bg-slate-700 px-1 rounded">test.py</code>:</p>
+                    <div className="bg-slate-900 p-2 rounded font-mono text-sm text-green-400">
+                      print("¡Python funciona!")
+                    </div>
+                    <p className="text-slate-300">2. Ejecuta con <kbd className="bg-slate-700 px-2 py-1 rounded">F5</kbd> o clic derecho → "Run Python File"</p>
+                  </div>
+                </div>
+
+                <Callout type="info">
+                  <strong>💡 Tip:</strong> Para proyectos serios, usa entornos virtuales (sección siguiente) 
+                  para aislar dependencias y evitar conflictos.
+                </Callout>
+              </div>
+            </section>
+
+            <section id="cpp-setup">
+              <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
+                ⚡ Desarrollo C++
+              </h2>
+              <div className="space-y-6">
+                <p className="text-slate-300">
+                  C++ es esencial para desarrollo de sistemas, juegos, robótica y aplicaciones de alto rendimiento. 
+                  Configuramos un entorno completo con compiladores y herramientas de debugging.
+                </p>
+
+                {/* Compiler Installation */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-slate-200">Instalación de compiladores</h3>
+                  
+                  {/* Ubuntu */}
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-3 flex items-center gap-2">
+                      🐧 Ubuntu - GCC/G++
+                    </h4>
+                    <div className="bg-slate-900 p-3 rounded font-mono text-sm text-green-400">
+                      <div className="mb-2"># Herramientas esenciales para C++</div>
+                      sudo apt update<br />
+                      sudo apt install build-essential gdb cmake<br />
+                      <br />
+                      <div className="mb-2"># Verificar instalación</div>
+                      gcc --version<br />
+                      g++ --version
+                    </div>
+                  </div>
+
+                  {/* Windows */}
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-3 flex items-center gap-2">
+                      🪟 Windows - MSVC/MinGW
+                    </h4>
+                    <div className="space-y-3">
+                      <div>
+                        <p className="text-slate-300 mb-2"><strong>Opción 1:</strong> Visual Studio Build Tools (recomendado)</p>
+                        <ul className="space-y-1 text-slate-300 text-sm ml-4">
+                          <li>• Descarga Visual Studio Build Tools</li>
+                          <li>• Instala "C++ build tools" workload</li>
+                          <li>• Incluye MSVC compiler + Windows SDK</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="text-slate-300 mb-2"><strong>Opción 2:</strong> MinGW-w64</p>
+                        <div className="bg-slate-900 p-2 rounded font-mono text-sm text-green-400">
+                          winget install msys2.msys2<br />
+                          pacman -S mingw-w64-ucrt-x86_64-gcc
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* macOS */}
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-3 flex items-center gap-2">
+                      🍎 macOS - Clang
+                    </h4>
+                    <div className="bg-slate-900 p-3 rounded font-mono text-sm text-green-400">
+                      <div className="mb-2"># Instalar Xcode Command Line Tools</div>
+                      xcode-select --install<br />
+                      <br />
+                      <div className="mb-2"># Instalar CMake con Homebrew</div>
+                      brew install cmake
+                    </div>
+                  </div>
+                </div>
+
+                {/* VS Code Extensions */}
+                <div className="bg-slate-800 p-4 rounded-lg">
+                  <h3 className="text-xl font-semibold text-slate-200 mb-3">Extensiones VS Code para C++</h3>
+                  <div className="bg-slate-900 p-3 rounded font-mono text-sm text-green-400">
+                    <div className="mb-2"># Extensiones esenciales</div>
+                    code --install-extension ms-vscode.cpptools<br />
+                    code --install-extension ms-vscode.cmake-tools
+                  </div>
+                  <p className="text-slate-300 text-sm mt-2">
+                    Estas extensiones proporcionan IntelliSense, debugging y soporte para CMake.
+                  </p>
+                </div>
+
+                {/* Quick Test */}
+                <div className="bg-gradient-to-r from-green-900/20 to-blue-900/20 border border-green-500/30 p-4 rounded-lg">
+                  <h4 className="font-semibold text-green-400 mb-3">✅ Prueba rápida</h4>
+                  <div className="space-y-3">
+                    <div>
+                      <p className="text-slate-300 mb-2">1. Crea <code className="bg-slate-700 px-1 rounded">main.cpp</code>:</p>
+                      <div className="bg-slate-900 p-2 rounded font-mono text-sm text-green-400">
+                        #include &lt;iostream&gt;<br />
+                        int main() &#123;<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;std::cout &lt;&lt; "¡C++ funciona!" &lt;&lt; std::endl;<br />
+                        &nbsp;&nbsp;&nbsp;&nbsp;return 0;<br />
+                        &#125;
+                      </div>
+                    </div>
+                    <div>
+                      <p className="text-slate-300 mb-2">2. Compila y ejecuta:</p>
+                      <div className="bg-slate-900 p-2 rounded font-mono text-sm text-green-400">
+                        g++ main.cpp -o main && ./main
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <Callout type="tip">
+                  <strong>🚀 Pro tip:</strong> Usa <kbd className="bg-slate-700 px-2 py-1 rounded">Ctrl+Shift+P</kbd> → 
+                  "C/Cpp: Edit Configurations" para configurar paths de include específicos.
+                </Callout>
+              </div>
+            </section>
+
+            <section id="entornos-virtuales">
+              <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
+                📦 Entornos virtuales Python
+              </h2>
+              <div className="space-y-6">
+                <p className="text-slate-300">
+                  Los entornos virtuales te permiten aislar dependencias de cada proyecto y evitar conflictos entre versiones.
+                </p>
+
+                {/* venv (Built-in) */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-slate-200">Usando venv (incluido en Python)</h3>
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <div className="space-y-3">
+                      <div>
+                        <p className="text-slate-300 mb-2">1. Crear entorno virtual:</p>
+                        <div className="bg-slate-900 p-2 rounded font-mono text-sm text-green-400">
+                          python -m venv mi_entorno
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-slate-300 mb-2">2. Activar entorno:</p>
+                        <div className="grid md:grid-cols-2 gap-2">
+                          <div>
+                            <p className="text-slate-400 text-sm mb-1">Windows:</p>
+                            <div className="bg-slate-900 p-2 rounded font-mono text-sm text-green-400">
+                              mi_entorno\Scripts\activate
+                            </div>
+                          </div>
+                          <div>
+                            <p className="text-slate-400 text-sm mb-1">Linux/macOS:</p>
+                            <div className="bg-slate-900 p-2 rounded font-mono text-sm text-green-400">
+                              source mi_entorno/bin/activate
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* VS Code Integration */}
+                <div className="bg-slate-800 p-4 rounded-lg">
+                  <h3 className="text-xl font-semibold text-slate-200 mb-3">Integración con VS Code</h3>
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2">
+                      <span className="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm">1</span>
+                      <span className="text-slate-300">Presiona <kbd className="bg-slate-700 px-2 py-1 rounded">Ctrl+Shift+P</kbd></span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="w-6 h-6 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm">2</span>
+                      <span className="text-slate-300">Escribe "Python: Select Interpreter"</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="w-6 h-6 bg-green-500 text-white rounded-full flex items-center justify-center text-sm">✓</span>
+                      <span className="text-slate-300">Selecciona el intérprete de tu entorno virtual</span>
+                    </div>
+                  </div>
+                </div>
+
+                <Callout type="warning">
+                  <strong>⚠️ Importante:</strong> Nunca commits el directorio del entorno virtual a Git. 
+                  Agrega <code className="bg-slate-700 px-1 rounded">mi_entorno/</code> a tu .gitignore.
+                </Callout>
+              </div>
+            </section>
+
+            <section id="arduino-setup">
+              <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
+                🔧 Arduino IDE
+              </h2>
+              <div className="space-y-6">
+                <p className="text-slate-300">
+                  Arduino IDE es esencial para desarrollo de microcontroladores y proyectos IoT. 
+                  Te mostramos cómo instalarlo en diferentes sistemas operativos.
+                </p>
+
+                {/* Installation by OS */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-slate-200">Instalación por sistema operativo</h3>
+                  
+                  {/* Ubuntu */}
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-3 flex items-center gap-2">
+                      🐧 Ubuntu
+                    </h4>
+                    <div className="space-y-3">
+                      <div>
+                        <p className="text-slate-300 mb-2"><strong>Opción 1:</strong> Snap (recomendado)</p>
+                        <div className="bg-slate-900 p-2 rounded font-mono text-sm text-green-400">
+                          sudo snap install arduino
+                        </div>
+                        <p className="text-slate-300 text-sm mt-1">Siempre actualizada, fácil instalación</p>
+                      </div>
+                      <div>
+                        <p className="text-slate-300 mb-2"><strong>Opción 2:</strong> AppImage desde arduino.cc</p>
+                        <div className="bg-slate-900 p-2 rounded font-mono text-sm text-green-400">
+                          wget https://downloads.arduino.cc/arduino-ide/arduino-ide_2.2.1_Linux_64bit.AppImage<br />
+                          chmod +x arduino-ide_*.AppImage<br />
+                          ./arduino-ide_*.AppImage
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Windows */}
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-3 flex items-center gap-2">
+                      🪟 Windows
+                    </h4>
+                    <div className="space-y-3">
+                      <div>
+                        <p className="text-slate-300 mb-2"><strong>Opción 1:</strong> Microsoft Store (recomendado)</p>
+                        <ul className="space-y-1 text-slate-300 text-sm ml-4">
+                          <li>• Busca "Arduino IDE" en Microsoft Store</li>
+                          <li>• Instalación automática y actualizaciones</li>
+                          <li>• Drivers incluidos</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="text-slate-300 mb-2"><strong>Opción 2:</strong> Descarga directa</p>
+                        <ul className="space-y-1 text-slate-300 text-sm ml-4">
+                          <li>• Visita <a href="https://arduino.cc/en/software" className="text-cyan-400 hover:underline">arduino.cc/en/software</a></li>
+                          <li>• Descarga Arduino IDE 2.x para Windows</li>
+                          <li>• Ejecuta el instalador .exe</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="text-slate-300 mb-2"><strong>Opción 3:</strong> Winget</p>
+                        <div className="bg-slate-900 p-2 rounded font-mono text-sm text-green-400">
+                          winget install ArduinoSA.IDE.stable
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* macOS */}
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-3 flex items-center gap-2">
+                      🍎 macOS
+                    </h4>
+                    <div className="space-y-3">
+                      <div>
+                        <p className="text-slate-300 mb-2"><strong>Opción 1:</strong> Descarga directa (recomendado)</p>
+                        <ul className="space-y-1 text-slate-300 text-sm ml-4">
+                          <li>• Descarga desde <a href="https://arduino.cc/en/software" className="text-cyan-400 hover:underline">arduino.cc/en/software</a></li>
+                          <li>• Descomprime y arrastra a Applications</li>
+                          <li>• Primera ejecución: System Preferences → Security</li>
+                        </ul>
+                      </div>
+                      <div>
+                        <p className="text-slate-300 mb-2"><strong>Opción 2:</strong> Homebrew</p>
+                        <div className="bg-slate-900 p-2 rounded font-mono text-sm text-green-400">
+                          brew install --cask arduino-ide
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* VS Code Integration */}
+                <div className="space-y-4">
+                  <h3 className="text-xl font-semibold text-slate-200">Integración con VS Code</h3>
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <p className="text-slate-300 mb-3">Para desarrollo Arduino en VS Code, instala estas extensiones:</p>
+                    <div className="bg-slate-900 p-3 rounded font-mono text-sm text-green-400">
+                      <div className="mb-2"># Extensión oficial de Arduino</div>
+                      code --install-extension arduino.vscode-arduino<br />
+                      <br />
+                      <div className="mb-2"># Alternativa: PlatformIO (más avanzado)</div>
+                      code --install-extension platformio.platformio-ide
+                    </div>
+                    <div className="mt-3 grid md:grid-cols-2 gap-3">
+                      <div className="p-3 bg-blue-900/20 border border-blue-500/30 rounded">
+                        <h5 className="font-semibold text-blue-400 mb-1">Arduino</h5>
+                        <p className="text-slate-300 text-sm">Extensión oficial, compatible con Arduino IDE</p>
+                      </div>
+                      <div className="p-3 bg-purple-900/20 border border-purple-500/30 rounded">
+                        <h5 className="font-semibold text-purple-400 mb-1">PlatformIO</h5>
+                        <p className="text-slate-300 text-sm">Entorno profesional, múltiples plataformas</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Quick Setup Test */}
+                <div className="bg-gradient-to-r from-green-900/20 to-blue-900/20 border border-green-500/30 p-4 rounded-lg">
+                  <h4 className="font-semibold text-green-400 mb-3">✅ Prueba de configuración</h4>
+                  <div className="space-y-3">
+                    <div>
+                      <p className="text-slate-300 mb-2">1. Conecta una placa Arduino (Uno, Nano, ESP32...)</p>
+                    </div>
+                    <div>
+                      <p className="text-slate-300 mb-2">2. Abre Arduino IDE y ve a <strong>File → Examples → 01.Basics → Blink</strong></p>
+                    </div>
+                    <div>
+                      <p className="text-slate-300 mb-2">3. Selecciona tu placa: <strong>Tools → Board → Arduino Uno</strong></p>
+                    </div>
+                    <div>
+                      <p className="text-slate-300 mb-2">4. Selecciona puerto: <strong>Tools → Port → COM3 (Windows) / /dev/ttyUSB0 (Linux)</strong></p>
+                    </div>
+                    <div>
+                      <p className="text-slate-300 mb-2">5. Haz clic en <strong>Upload</strong> (→)</p>
+                    </div>
+                    <div className="mt-2 p-2 bg-green-800/20 rounded">
+                      <p className="text-green-400 text-sm">✨ Si el LED integrado parpadea, ¡todo funciona correctamente!</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Tips */}
+                <div className="bg-gradient-to-r from-yellow-900/20 to-orange-900/20 border border-yellow-500/30 p-4 rounded-lg">
+                  <h4 className="font-semibold text-yellow-400 mb-3">💡 Tips importantes</h4>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <h5 className="font-semibold text-slate-200 mb-2">Drivers</h5>
+                      <ul className="space-y-1 text-slate-300 text-sm">
+                        <li>• Windows: Se instalan automáticamente</li>
+                        <li>• Linux: Agregar usuario al grupo dialout</li>
+                        <li>• macOS: No requiere drivers adicionales</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-slate-200 mb-2">Placas populares</h5>
+                      <ul className="space-y-1 text-slate-300 text-sm">
+                        <li>• Arduino Uno/Nano (principiantes)</li>
+                        <li>• ESP32 (WiFi/Bluetooth)</li>
+                        <li>• Raspberry Pi Pico (dual-core)</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <Callout type="info">
+                  <strong>🔗 Siguiente paso:</strong> Una vez configurado Arduino IDE, puedes combinar 
+                  proyectos Arduino con Python/ROS para crear sistemas robóticos completos.
+                </Callout>
+              </div>
+            </section>
+
             <section id="debugging">
               <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
                 🐛 Debugging Python
@@ -418,7 +855,7 @@ export default function VSCodeSetup() {
                       <div>      \"program\": \"$&#123;file&#125;\",</div>
                       <div>      \"console\": \"integratedTerminal\",</div>
                       <div>      \"env\": &#123;</div>
-                      <div>        \"PYTHONPATH\": \"/opt/ros/humble/lib/python3.10/site-packages\"</div>
+                      <div>        \"PYTHONPATH\": \"/opt/ros/jazzy/lib/python3.12/site-packages\"</div>
                       <div>      &#125;</div>
                       <div>    &#125;</div>
                       <div>  ]</div>
@@ -543,30 +980,30 @@ export default function VSCodeSetup() {
               </div>
             </section>
 
-            <section id="recursos">
-              <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                🔗 Recursos y referencias
-              </h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="card">
-                  <h4 className="font-semibold text-slate-200 mb-2">Documentación</h4>
-                  <ul className="space-y-1 text-slate-300 text-sm">
-                    <li>• <a href="https://code.visualstudio.com/docs/python/python-tutorial" className="text-blue-400 hover:underline">VS Code Python Tutorial</a></li>
-                    <li>• <a href="https://marketplace.visualstudio.com/items?itemName=ms-iot.vscode-ros" className="text-blue-400 hover:underline">ROS Extension</a></li>
-                    <li>• <a href="https://code.visualstudio.com/docs/editor/debugging" className="text-blue-400 hover:underline">Debugging Guide</a></li>
-                  </ul>
+              <section id="recursos">
+                <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
+                  🔗 Recursos y referencias
+                </h2>
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="card">
+                    <h4 className="font-semibold text-slate-200 mb-2">Documentación</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• <a href="https://code.visualstudio.com/docs/python/python-tutorial" className="text-blue-400 hover:underline">VS Code Python Tutorial</a></li>
+                      <li>• <a href="https://marketplace.visualstudio.com/items?itemName=ms-iot.vscode-ros" className="text-blue-400 hover:underline">ROS Extension</a></li>
+                      <li>• <a href="https://code.visualstudio.com/docs/editor/debugging" className="text-blue-400 hover:underline">Debugging Guide</a></li>
+                    </ul>
+                  </div>
+                  <div className="card">
+                    <h4 className="font-semibold text-slate-200 mb-2">Extensiones adicionales</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• <strong>Docker:</strong> ms-azuretools.vscode-docker</li>
+                      <li>• <strong>Remote SSH:</strong> ms-vscode-remote.remote-ssh</li>
+                      <li>• <strong>Jupyter:</strong> ms-toolsai.jupyter</li>
+                      <li>• <strong>XML:</strong> redhat.vscode-xml</li>
+                    </ul>
+                  </div>
                 </div>
-                <div className="card">
-                  <h4 className="font-semibold text-slate-200 mb-2">Extensiones adicionales</h4>
-                  <ul className="space-y-1 text-slate-300 text-sm">
-                    <li>• <strong>Docker:</strong> ms-azuretools.vscode-docker</li>
-                    <li>• <strong>Remote SSH:</strong> ms-vscode-remote.remote-ssh</li>
-                    <li>• <strong>Jupyter:</strong> ms-toolsai.jupyter</li>
-                    <li>• <strong>XML:</strong> redhat.vscode-xml</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
+              </section>
             </div>
 
             <TutorialNavigation 
@@ -576,7 +1013,9 @@ export default function VSCodeSetup() {
           </main>
 
           <aside className="lg:col-span-1">
-            <TableOfContents items={tocItems} />
+            <div className="sticky top-8">
+              <TableOfContents items={tocItems} />
+            </div>
           </aside>
         </div>
       </div>

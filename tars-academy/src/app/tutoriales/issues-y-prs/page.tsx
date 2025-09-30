@@ -1,22 +1,40 @@
+/* eslint-disable react/no-unescaped-entities */
+'use client';
+
 import Breadcrumb from "@/components/tutorial/Breadcrumb";
 import TutorialChip from "@/components/tutorial/TutorialChip";
 import Callout from "@/components/tutorial/Callout";
 import TableOfContents from "@/components/tutorial/TableOfContents";
 import TutorialNavigation from "@/components/tutorial/TutorialNavigation";
 
-export default function IssuesPRs() {
+export default function TrabajoEnEquipo() {
+  const handleStartClick = () => {
+    const element = document.getElementById('comunicacion');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handlePrerequisitesClick = () => {
+    const element = document.getElementById('fundamentos');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const tocItems = [
-    { id: "introduccion", title: "Colaboración avanzada", level: 2 },
-    { id: "prerequisitos", title: "Prerequisitos", level: 2 },
-    { id: "issues", title: "GitHub Issues", level: 2 },
-    { id: "fork-workflow", title: "Fork y Pull Requests", level: 2 },
-    { id: "crear-pr", title: "Crear Pull Request", level: 2 },
-    { id: "code-review", title: "Code Review", level: 2 },
-    { id: "merge-strategies", title: "Estrategias de merge", level: 2 },
-    { id: "project-management", title: "Project management", level: 2 },
-    { id: "mejores-practicas", title: "Mejores prácticas", level: 2 },
-    { id: "validacion", title: "Validación final", level: 2 },
-    { id: "recursos", title: "Recursos", level: 2 }
+    { id: "introduccion", title: "🤝 ¿Por qué las soft skills?", level: 2 },
+    { id: "fundamentos", title: "🏗️ Fundamentos del trabajo en equipo", level: 2 },
+    { id: "comunicacion", title: "💬 Comunicación efectiva", level: 2 },
+    { id: "colaboracion", title: "🤝 Colaboración práctica", level: 2 },
+    { id: "resolucion-conflictos", title: "🔧 Resolución de conflictos", level: 2 },
+    { id: "liderazgo", title: "👑 Liderazgo y responsabilidad", level: 2 },
+    { id: "gestion-tiempo", title: "⏰ Gestión del tiempo en equipo", level: 2 },
+    { id: "ambiente-positivo", title: "🌟 Crear ambiente positivo", level: 2 },
+    { id: "feedback", title: "📝 Dar y recibir feedback", level: 2 },
+    { id: "herramientas", title: "🛠️ Herramientas de colaboración", level: 2 },
+    { id: "casos-practicos", title: "💡 Casos prácticos TARS", level: 2 },
+    { id: "recursos", title: "📚 Recursos adicionales", level: 2 }
   ];
 
   return (
@@ -28,32 +46,32 @@ export default function IssuesPRs() {
               items={[
                 { label: "Inicio", href: "/" },
                 { label: "Tutoriales", href: "/" },
-                { label: "Issues y PRs" }
+                { label: "Trabajo en Equipo" }
               ]} 
             />
             
             <div className="mt-6 flex flex-wrap gap-2 mb-8">
+              <TutorialChip label="Soft Skills" variant="status" icon="🧠" />
               <TutorialChip label="Colaboración" variant="status" icon="🤝" />
-              <TutorialChip label="Workflows" variant="status" icon="⚡" />
-              <TutorialChip label="Intermedio" variant="level" icon="📈" />
+              <TutorialChip label="Esencial" variant="level" icon="⭐" />
             </div>
 
             <header className="mb-8">
               <h1 className="text-4xl font-bold text-slate-100 mb-4">
-                🚀 Issues y Pull Requests
+                🤝 Trabajo en Equipo y Soft Skills
               </h1>
               <p className="text-lg text-slate-300 leading-relaxed">
-                Domina la colaboración avanzada en GitHub: gestiona Issues para tracking de bugs y features, 
-                crea Pull Requests profesionales, participa en code reviews y contribuye a proyectos open source. 
-                El siguiente nivel después de Git básico.
+                Desarrolla las habilidades blandas esenciales para el éxito en TARS Robotics. 
+                Aprende comunicación efectiva, colaboración, resolución de conflictos y cómo crear 
+                un ambiente de trabajo positivo y productivo en proyectos técnicos complejos.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mt-6">
-                <button className="btn-primary">
+                <button className="btn-primary" onClick={handleStartClick}>
                   🚀 Empezar ahora
                 </button>
-                <button className="btn-secondary">
-                  📋 Ver requisitos
+                <button className="btn-secondary" onClick={handlePrerequisitesClick}>
+                  🏗️ Ver fundamentos
                 </button>
               </div>
             </header>
@@ -61,946 +79,699 @@ export default function IssuesPRs() {
             <div className="space-y-8">
             <section id="introduccion">
               <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                🌟 Colaboración avanzada
+                🤝 ¿Por qué las soft skills?
               </h2>
               <div className="space-y-4">
                 <p className="text-slate-300">
-                  Issues y Pull Requests son el corazón de la colaboración en GitHub. Te permiten 
-                  gestionar proyectos, reportar bugs, proponer features, y contribuir a cualquier 
-                  proyecto open source del mundo.
+                  En TARS Robotics, el éxito no depende solo de dominar ROS 2 o programar algoritmos perfectos. 
+                  Las soft skills son el 70% del éxito en proyectos técnicos complejos como el European Rover Challenge. 
+                  Un equipo con excelente comunicación supera siempre a individuos brillantes trabajando aislados.
                 </p>
                 
                 <div className="grid md:grid-cols-2 gap-4">
                   <div className="bg-slate-800 p-4 rounded-lg">
-                    <h4 className="font-semibold text-slate-200 mb-2">🎯 Issues (Gestión)</h4>
+                    <h4 className="font-semibold text-slate-200 mb-2">❌ Sin Soft Skills</h4>
                     <ul className="space-y-1 text-slate-300 text-sm">
-                      <li>• Reportar bugs y problemas</li>
-                      <li>• Solicitar nuevas features</li>
-                      <li>• Hacer preguntas técnicas</li>
-                      <li>• Documentar tareas pendientes</li>
-                      <li>• Organizar roadmap del proyecto</li>
+                      <li>• Malentendidos constantes</li>
+                      <li>• Duplicación de trabajo</li>
+                      <li>• Conflictos no resueltos</li>
+                      <li>• Deadlines perdidos</li>
+                      <li>• Estrés y ambiente tóxico</li>
+                      <li>• Miembros que abandonan</li>
                     </ul>
                   </div>
                   <div className="bg-slate-800 p-4 rounded-lg">
-                    <h4 className="font-semibold text-slate-200 mb-2">🔄 Pull Requests (Código)</h4>
+                    <h4 className="font-semibold text-slate-200 mb-2">✅ Con Soft Skills</h4>
                     <ul className="space-y-1 text-slate-300 text-sm">
-                      <li>• Proponer cambios al código</li>
-                      <li>• Review de código colaborativo</li>
-                      <li>• Integración controlada de features</li>
-                      <li>• Discusión técnica específica</li>
-                      <li>• Testing automático (CI/CD)</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="bg-slate-800 p-4 rounded-lg">
-                  <h4 className="font-semibold text-slate-200 mb-2">En robótica, esto significa:</h4>
-                  <div className="grid md:grid-cols-2 gap-4 mt-3">
-                    <ul className="space-y-1 text-slate-300 text-sm">
-                      <li>• Reportar bugs en algoritmos de navegación</li>
-                      <li>• Contribuir a ROS packages</li>
-                      <li>• Revisar código de compañeros de equipo</li>
-                    </ul>
-                    <ul className="space-y-1 text-slate-300 text-sm">
-                      <li>• Participar en proyectos open source</li>
-                      <li>• Gestionar desarrollo en equipo</li>
-                      <li>• Documentar mejoras y optimizaciones</li>
+                      <li>• Comunicación clara y efectiva</li>
+                      <li>• Colaboración fluida</li>
+                      <li>• Resolución rápida de problemas</li>
+                      <li>• Cumplimiento de objetivos</li>
+                      <li>• Ambiente positivo y motivador</li>
+                      <li>• Crecimiento personal y profesional</li>
                     </ul>
                   </div>
                 </div>
 
                 <Callout type="tip">
-                  <strong>Flujo profesional:</strong> Issue (problema/idea) → Branch → Commits → 
-                  Pull Request → Code Review → Merge. Así trabajan equipos en Google, Tesla, etc.
+                  <strong>Realidad TARS:</strong> El 90% de los problemas en proyectos técnicos son problemas de comunicación, 
+                  no problemas técnicos. Un bug se arregla en horas, pero un malentendido puede costar semanas.
                 </Callout>
               </div>
             </section>
 
-            <section id="prerequisitos">
+            <section id="fundamentos">
               <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                📋 Prerequisitos
-              </h2>
-              <div className="space-y-4">
-                <div className="bg-slate-800 p-4 rounded-lg">
-                  <h4 className="font-semibold text-slate-200 mb-3">Antes de comenzar necesitas:</h4>
-                  <ul className="space-y-2 text-slate-300">
-                    <li className="flex items-start gap-2">
-                      <span className="text-green-400 mt-1">✓</span>
-                      <span><strong>Git & GitHub básico</strong> - Tutorial anterior completado</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-green-400 mt-1">✓</span>
-                      <span><strong>Cuenta GitHub activa</strong> - con al menos un repositorio</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-green-400 mt-1">✓</span>
-                      <span><strong>Conocimiento de branches</strong> - crear, cambiar, merge</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <span className="text-orange-400 mt-1">○</span>
-                      <span><strong>Opcional:</strong> Inglés básico (muchos proyectos están en inglés)</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <Callout type="info">
-                  <strong>Tiempo estimado:</strong> 90 minutos para teoría + práctica con Issues y PRs reales.
-                </Callout>
-              </div>
-            </section>
-
-            <section id="issues">
-              <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                🎯 GitHub Issues
-              </h2>
-              <div className="space-y-6">
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-200">¿Qué son los Issues?</h3>
-                  <div className="bg-slate-800 p-4 rounded-lg">
-                    <p className="text-slate-300 mb-3">
-                      Los Issues son "tickets" para gestionar trabajo en un proyecto. Cada Issue 
-                      tiene un número único (#123) y se puede referenciar desde commits y PRs.
-                    </p>
-                    <div className="grid md:grid-cols-3 gap-4">
-                      <div className="text-center">
-                        <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                          🐛
-                        </div>
-                        <h5 className="font-semibold text-slate-200">Bug Reports</h5>
-                        <p className="text-slate-300 text-sm">Problemas que hay que arreglar</p>
-                      </div>
-                      <div className="text-center">
-                        <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                          ✨
-                        </div>
-                        <h5 className="font-semibold text-slate-200">Feature Requests</h5>
-                        <p className="text-slate-300 text-sm">Nuevas funcionalidades</p>
-                      </div>
-                      <div className="text-center">
-                        <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                          ❓
-                        </div>
-                        <h5 className="font-semibold text-slate-200">Questions</h5>
-                        <p className="text-slate-300 text-sm">Dudas y discusiones</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-200">Crear un Issue efectivo</h3>
-                  <div className="bg-slate-800 p-4 rounded-lg">
-                    <div className="space-y-4">
-                      <div>
-                        <h5 className="font-semibold text-slate-200 mb-2">📝 Título descriptivo</h5>
-                        <div className="grid md:grid-cols-2 gap-4">
-                          <div>
-                            <p className="text-red-400 text-sm mb-1">❌ Malo:</p>
-                            <div className="bg-slate-900 p-2 rounded text-sm">
-                              "No funciona"
-                            </div>
-                          </div>
-                          <div>
-                            <p className="text-green-400 text-sm mb-1">✅ Bueno:</p>
-                            <div className="bg-slate-900 p-2 rounded text-sm">
-                              "Robot no gira: error en controlador PID"
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div>
-                        <h5 className="font-semibold text-slate-200 mb-2">📋 Template de Issue</h5>
-                        <div className="bg-slate-900 p-3 rounded text-sm text-slate-300">
-                          <div className="text-green-400">## Descripción</div>
-                          <div>Breve descripción del problema o feature</div>
-                          <div className="mt-2 text-green-400">## Pasos para reproducir</div>
-                          <div>1. Ejecutar `rosrun mi_paquete nodo.py`</div>
-                          <div>2. Enviar comando de giro</div>
-                          <div>3. Observar que no gira</div>
-                          <div className="mt-2 text-green-400">## Comportamiento esperado</div>
-                          <div>El robot debería girar 90 grados</div>
-                          <div className="mt-2 text-green-400">## Comportamiento actual</div>
-                          <div>Se queda inmóvil, sin errores en consola</div>
-                          <div className="mt-2 text-green-400">## Entorno</div>
-                          <div>- ROS 2 Humble</div>
-                          <div>- Ubuntu 22.04</div>
-                          <div>- Robot: TurtleBot3</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-200">Labels y Milestones</h3>
-                  <div className="bg-slate-800 p-4 rounded-lg">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <h5 className="font-semibold text-slate-200 mb-2">🏷️ Labels comunes</h5>
-                        <div className="space-y-2">
-                          <div className="flex items-center gap-2">
-                            <span className="px-2 py-1 bg-red-600 text-white text-xs rounded">bug</span>
-                            <span className="text-slate-300 text-sm">Algo está roto</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="px-2 py-1 bg-blue-600 text-white text-xs rounded">enhancement</span>
-                            <span className="text-slate-300 text-sm">Nueva feature</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="px-2 py-1 bg-green-600 text-white text-xs rounded">good first issue</span>
-                            <span className="text-slate-300 text-sm">Para principiantes</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <span className="px-2 py-1 bg-purple-600 text-white text-xs rounded">documentation</span>
-                            <span className="text-slate-300 text-sm">Mejoras de docs</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div>
-                        <h5 className="font-semibold text-slate-200 mb-2">🎯 Milestones</h5>
-                        <ul className="space-y-1 text-slate-300 text-sm">
-                          <li>• <strong>v1.0:</strong> Release principal</li>
-                          <li>• <strong>Sprint 3:</strong> Ciclo de desarrollo</li>
-                          <li>• <strong>Bug fixes:</strong> Correcciones urgentes</li>
-                          <li>• <strong>Future:</strong> Ideas para después</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <Callout type="tip">
-                  <strong>Tip profesional:</strong> Siempre busca Issues existentes antes de crear uno nuevo. 
-                  Muchos problemas ya están reportados o se están trabajando.
-                </Callout>
-              </div>
-            </section>
-
-            <section id="fork-workflow">
-              <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                🍴 Fork y Pull Requests
-              </h2>
-              <div className="space-y-6">
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-200">Fork Workflow completo</h3>
-                  <div className="bg-slate-800 p-4 rounded-lg">
-                    <div className="space-y-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold">1</div>
-                        <div>
-                          <h5 className="font-semibold text-slate-200">Fork el repositorio</h5>
-                          <p className="text-slate-300 text-sm">Click "Fork" en GitHub → Crea copia en tu cuenta</p>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold">2</div>
-                        <div>
-                          <h5 className="font-semibold text-slate-200">Clone tu fork</h5>
-                          <p className="text-slate-300 text-sm">git clone https://github.com/TU_USUARIO/proyecto.git</p>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold">3</div>
-                        <div>
-                          <h5 className="font-semibold text-slate-200">Agregar upstream</h5>
-                          <p className="text-slate-300 text-sm">git remote add upstream https://github.com/ORIGINAL/proyecto.git</p>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold">4</div>
-                        <div>
-                          <h5 className="font-semibold text-slate-200">Crear feature branch</h5>
-                          <p className="text-slate-300 text-sm">git checkout -b fix/issue-123-navigation-bug</p>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold">5</div>
-                        <div>
-                          <h5 className="font-semibold text-slate-200">Hacer cambios y commits</h5>
-                          <p className="text-slate-300 text-sm">Desarrollar, commitear con mensajes claros</p>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold">6</div>
-                        <div>
-                          <h5 className="font-semibold text-slate-200">Push y crear PR</h5>
-                          <p className="text-slate-300 text-sm">git push origin feature-branch → GitHub sugiere crear PR</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-200">Mantener fork actualizado</h3>
-                  <div className="bg-slate-800 p-4 rounded-lg">
-                    <div className="bg-slate-900 p-3 rounded font-mono text-sm text-green-400">
-                      <div># Cambiar a main</div>
-                      <div>git checkout main</div>
-                      <div className="mt-2"># Traer cambios del repo original</div>
-                      <div>git fetch upstream</div>
-                      <div>git merge upstream/main</div>
-                      <div className="mt-2"># Actualizar tu fork en GitHub</div>
-                      <div>git push origin main</div>
-                      <div className="mt-2"># Actualizar tu feature branch</div>
-                      <div>git checkout feature-branch</div>
-                      <div>git rebase main</div>
-                    </div>
-                    <p className="text-slate-300 mt-3 text-sm">
-                      <strong>Importante:</strong> Siempre mantén tu fork sincronizado antes de crear nuevas branches.
-                    </p>
-                  </div>
-                </div>
-
-                <Callout type="warning">
-                  <strong>Remote names:</strong><br/>
-                  • <code>origin</code> = tu fork en GitHub<br/>
-                  • <code>upstream</code> = repositorio original<br/>
-                  No los confundas al hacer push/pull.
-                </Callout>
-              </div>
-            </section>
-
-            <section id="crear-pr">
-              <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                📝 Crear Pull Request
-              </h2>
-              <div className="space-y-6">
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-200">Anatomía de un PR profesional</h3>
-                  <div className="bg-slate-800 p-4 rounded-lg">
-                    <div className="space-y-4">
-                      <div>
-                        <h5 className="font-semibold text-slate-200 mb-2">🎯 Título claro y específico</h5>
-                        <div className="grid md:grid-cols-2 gap-4">
-                          <div>
-                            <p className="text-red-400 text-sm mb-1">❌ Malo:</p>
-                            <div className="bg-slate-900 p-2 rounded text-sm">
-                              "Fix bug"
-                            </div>
-                          </div>
-                          <div>
-                            <p className="text-green-400 text-sm mb-1">✅ Bueno:</p>
-                            <div className="bg-slate-900 p-2 rounded text-sm">
-                              "Fix navigation PID controller oscillation (closes #123)"
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div>
-                        <h5 className="font-semibold text-slate-200 mb-2">📋 Template de PR</h5>
-                        <div className="bg-slate-900 p-3 rounded text-sm text-slate-300">
-                          <div className="text-green-400">## Descripción</div>
-                          <div>Fixes oscillation in PID controller when robot navigates near obstacles.</div>
-                          <div>The issue was caused by too aggressive derivative gain.</div>
-                          <div className="mt-2 text-green-400">## Cambios realizados</div>
-                          <div>- Reduced derivative gain from 0.1 to 0.05</div>
-                          <div>- Added low-pass filter for derivative term</div>
-                          <div>- Updated unit tests for PID class</div>
-                          <div className="mt-2 text-green-400">## Testing</div>
-                          <div>- [x] Unit tests pass</div>
-                          <div>- [x] Tested on TurtleBot3 in simulation</div>
-                          <div>- [x] Tested with real robot</div>
-                          <div className="mt-2 text-green-400">## Closes</div>
-                          <div>Closes #123</div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-200">Tipos de PR</h3>
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div className="card border-l-4 border-l-red-500">
-                      <h5 className="font-semibold text-slate-200 mb-2">🚨 Hotfix</h5>
-                      <ul className="space-y-1 text-slate-300 text-sm">
-                        <li>• Bug crítico en producción</li>
-                        <li>• Se mergea directo a main</li>
-                        <li>• Requiere testing inmediato</li>
-                        <li>• Documentación después</li>
-                      </ul>
-                    </div>
-                    <div className="card border-l-4 border-l-blue-500">
-                      <h5 className="font-semibold text-slate-200 mb-2">✨ Feature</h5>
-                      <ul className="space-y-1 text-slate-300 text-sm">
-                        <li>• Nueva funcionalidad completa</li>
-                        <li>• Testing exhaustivo</li>
-                        <li>• Documentación incluida</li>
-                        <li>• Backward compatibility</li>
-                      </ul>
-                    </div>
-                    <div className="card border-l-4 border-l-green-500">
-                      <h5 className="font-semibold text-slate-200 mb-2">🔧 Refactor</h5>
-                      <ul className="space-y-1 text-slate-300 text-sm">
-                        <li>• Mejora código existente</li>
-                        <li>• Sin cambios funcionales</li>
-                        <li>• Performance o legibilidad</li>
-                        <li>• Tests existentes siguen pasando</li>
-                      </ul>
-                    </div>
-                    <div className="card border-l-4 border-l-purple-500">
-                      <h5 className="font-semibold text-slate-200 mb-2">📚 Docs</h5>
-                      <ul className="space-y-1 text-slate-300 text-sm">
-                        <li>• Actualizar documentación</li>
-                        <li>• Ejemplos de uso</li>
-                        <li>• Corregir typos</li>
-                        <li>• Traducir contenido</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-200">Draft PRs</h3>
-                  <div className="bg-slate-800 p-4 rounded-lg">
-                    <p className="text-slate-300 mb-3">
-                      Los Draft PRs te permiten mostrar work-in-progress y recibir feedback temprano.
-                    </p>
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <h5 className="font-semibold text-slate-200 mb-2">Cuándo usar Draft:</h5>
-                        <ul className="space-y-1 text-slate-300 text-sm">
-                          <li>• Feature grande en desarrollo</li>
-                          <li>• Quieres feedback de diseño</li>
-                          <li>• Trabajo colaborativo</li>
-                          <li>• Experimentación de ideas</li>
-                        </ul>
-                      </div>
-                      <div>
-                        <h5 className="font-semibold text-slate-200 mb-2">Cómo marcar como Draft:</h5>
-                        <ul className="space-y-1 text-slate-300 text-sm">
-                          <li>• En GitHub: "Create draft pull request"</li>
-                          <li>• Título: "[WIP] Feature navigation"</li>
-                          <li>• Convertir a ready cuando termine</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <Callout type="tip">
-                  <strong>Keywords mágicas:</strong><br/>
-                  • <code>Closes #123</code> - cierra el issue automáticamente<br/>
-                  • <code>Fixes #123</code> - igual que closes<br/>
-                  • <code>Related to #123</code> - solo referencia, no cierra
-                </Callout>
-              </div>
-            </section>
-
-            <section id="code-review">
-              <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                👀 Code Review
-              </h2>
-              <div className="space-y-6">
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-200">¿Qué es Code Review?</h3>
-                  <div className="bg-slate-800 p-4 rounded-lg">
-                    <p className="text-slate-300 mb-3">
-                      Es el proceso donde otros desarrolladores revisan tu código antes de que se 
-                      integre al proyecto. Mejora calidad, detecta bugs, y comparte conocimiento.
-                    </p>
-                    <div className="grid md:grid-cols-3 gap-4">
-                      <div className="text-center">
-                        <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                          ✅
-                        </div>
-                        <h5 className="font-semibold text-slate-200">Approve</h5>
-                        <p className="text-slate-300 text-sm">Todo perfecto, listo para merge</p>
-                      </div>
-                      <div className="text-center">
-                        <div className="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                          💬
-                        </div>
-                        <h5 className="font-semibold text-slate-200">Comment</h5>
-                        <p className="text-slate-300 text-sm">Feedback sin bloquear merge</p>
-                      </div>
-                      <div className="text-center">
-                        <div className="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                          🔄
-                        </div>
-                        <h5 className="font-semibold text-slate-200">Request Changes</h5>
-                        <p className="text-slate-300 text-sm">Cambios necesarios antes de merge</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-200">Hacer un buen review</h3>
-                  <div className="bg-slate-800 p-4 rounded-lg">
-                    <div className="grid md:grid-cols-2 gap-6">
-                      <div>
-                        <h5 className="font-semibold text-slate-200 mb-2">✅ Buenas prácticas</h5>
-                        <ul className="space-y-1 text-slate-300 text-sm">
-                          <li>• Sé constructivo y específico</li>
-                          <li>• Pregunta "¿por qué?" antes de criticar</li>
-                          <li>• Reconoce código bien escrito</li>
-                          <li>• Enfócate en el código, no la persona</li>
-                          <li>• Sugiere alternativas específicas</li>
-                        </ul>
-                      </div>
-                      <div>
-                        <h5 className="font-semibold text-slate-200 mb-2">❌ Evitar</h5>
-                        <ul className="space-y-1 text-slate-300 text-sm">
-                          <li>• "Esto está mal" (sin explicar por qué)</li>
-                          <li>• Comentarios personales</li>
-                          <li>• Nitpicking excesivo sobre estilo</li>
-                          <li>• Reviews de 200+ líneas de una vez</li>
-                          <li>• Asumir intenciones maliciosas</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-200">Ejemplos de comentarios</h3>
-                  <div className="bg-slate-800 p-4 rounded-lg">
-                    <div className="space-y-4">
-                      <div>
-                        <h5 className="font-semibold text-slate-200 mb-2">💬 Sugerencia de mejora</h5>
-                        <div className="bg-slate-900 p-3 rounded text-sm text-slate-300">
-                          <p className="text-blue-400 mb-1">Comentario en línea 45:</p>
-                          <p>¿Has considerado usar un diccionario aquí en lugar de múltiples if/elif? 
-                          Sería más legible y fácil de mantener:</p>
-                          <div className="bg-slate-800 p-2 rounded mt-2 font-mono text-xs">
-                            <div>actions = {'{'}robot_name: action_function{'}'}</div>
-                            <div>return actions.get(name, default_action)()</div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div>
-                        <h5 className="font-semibold text-slate-200 mb-2">🐛 Posible bug</h5>
-                        <div className="bg-slate-900 p-3 rounded text-sm text-slate-300">
-                          <p className="text-red-400 mb-1">Comentario en línea 78:</p>
-                          <p>Potential division by zero here if <code>sensor_readings</code> is empty. 
-                          Maybe add a check or use <code>numpy.mean()</code> with a default value?</p>
-                        </div>
-                      </div>
-
-                      <div>
-                        <h5 className="font-semibold text-slate-200 mb-2">✅ Reconocimiento positivo</h5>
-                        <div className="bg-slate-900 p-3 rounded text-sm text-slate-300">
-                          <p className="text-green-400 mb-1">Comentario general:</p>
-                          <p>Great job implementing the PID controller! The code is clean and well-documented. 
-                          I especially like how you handled the anti-windup mechanism.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-200">Responder a reviews</h3>
-                  <div className="bg-slate-800 p-4 rounded-lg">
-                    <div className="space-y-3">
-                      <div className="flex items-start gap-3">
-                        <span className="text-green-400 text-sm font-bold">✓</span>
-                        <div>
-                          <strong className="text-slate-200">Agradece el feedback:</strong>
-                          <p className="text-slate-300 text-sm">"Thanks for catching that! Fixed in commit abc123."</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <span className="text-green-400 text-sm font-bold">✓</span>
-                        <div>
-                          <strong className="text-slate-200">Explica tus decisiones:</strong>
-                          <p className="text-slate-300 text-sm">"I used this approach because it's more memory efficient for large sensor arrays."</p>
-                        </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <span className="text-green-400 text-sm font-bold">✓</span>
-                        <div>
-                          <strong className="text-slate-200">Pide clarificación:</strong>
-                          <p className="text-slate-300 text-sm">"Could you elaborate on the performance concern? I'm not seeing the bottleneck."</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <Callout type="tip">
-                  <strong>Reviews automáticos:</strong> Muchos proyectos usan CI/CD que automáticamente 
-                  ejecuta tests, linters, y security scans. ¡Aprovecha estas herramientas!
-                </Callout>
-              </div>
-            </section>
-
-            <section id="merge-strategies">
-              <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                🔄 Estrategias de merge
-              </h2>
-              <div className="space-y-6">
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-200">Tipos de merge</h3>
-                  <div className="grid md:grid-cols-3 gap-4">
-                    <div className="card border-l-4 border-l-blue-500">
-                      <h5 className="font-semibold text-slate-200 mb-2">🔀 Merge Commit</h5>
-                      <p className="text-slate-300 text-sm mb-2">
-                        Crea un commit especial que combina ambas branches.
-                      </p>
-                      <ul className="space-y-1 text-slate-300 text-xs">
-                        <li>• Preserva historial completo</li>
-                        <li>• Fácil de revertir el PR completo</li>
-                        <li>• Historial puede ser "ruidoso"</li>
-                      </ul>
-                    </div>
-                    <div className="card border-l-4 border-l-green-500">
-                      <h5 className="font-semibold text-slate-200 mb-2">⚡ Squash and Merge</h5>
-                      <p className="text-slate-300 text-sm mb-2">
-                        Combina todos los commits del PR en uno solo.
-                      </p>
-                      <ul className="space-y-1 text-slate-300 text-xs">
-                        <li>• Historial limpio y linear</li>
-                        <li>• Un commit = una feature</li>
-                        <li>• Pierde detalle de desarrollo</li>
-                      </ul>
-                    </div>
-                    <div className="card border-l-4 border-l-purple-500">
-                      <h5 className="font-semibold text-slate-200 mb-2">🎯 Rebase and Merge</h5>
-                      <p className="text-slate-300 text-sm mb-2">
-                        Aplica commits uno por uno sobre main.
-                      </p>
-                      <ul className="space-y-1 text-slate-300 text-xs">
-                        <li>• Historial completamente linear</li>
-                        <li>• Preserva commits individuales</li>
-                        <li>• Requiere commits limpios</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-200">¿Cuál usar?</h3>
-                  <div className="bg-slate-800 p-4 rounded-lg">
-                    <div className="space-y-4">
-                      <div>
-                        <h5 className="font-semibold text-slate-200 mb-2">🏢 Proyectos corporativos</h5>
-                        <p className="text-slate-300 text-sm">
-                          <strong>Squash and Merge:</strong> Historial limpio, cada PR es una unidad de trabajo clara.
-                        </p>
-                      </div>
-                      <div>
-                        <h5 className="font-semibold text-slate-200 mb-2">🔬 Proyectos de investigación</h5>
-                        <p className="text-slate-300 text-sm">
-                          <strong>Merge Commit:</strong> Preserva el proceso completo de experimentación y desarrollo.
-                        </p>
-                      </div>
-                      <div>
-                        <h5 className="font-semibold text-slate-200 mb-2">📚 Librerías open source</h5>
-                        <p className="text-slate-300 text-sm">
-                          <strong>Rebase and Merge:</strong> Historial perfecto para debugging y bisecting.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-200">Preparar commits para merge</h3>
-                  <div className="bg-slate-800 p-4 rounded-lg">
-                    <div className="bg-slate-900 p-3 rounded font-mono text-sm text-green-400">
-                      <div># Interactive rebase para limpiar historial</div>
-                      <div>git rebase -i HEAD~3</div>
-                      <div className="mt-2"># En el editor que se abre:</div>
-                      <div># pick = mantener commit</div>
-                      <div># squash = combinar con anterior</div>
-                      <div># reword = cambiar mensaje</div>
-                      <div># drop = eliminar commit</div>
-                    </div>
-                    <p className="text-slate-300 mt-3 text-sm">
-                      <strong>Tip:</strong> Haz esto ANTES de crear el PR para evitar reescribir historial público.
-                    </p>
-                  </div>
-                </div>
-
-                <Callout type="warning">
-                  <strong>Regla de oro:</strong> Nunca reescribas historial que ya está en GitHub (pushed). 
-                  Solo haz rebase/squash en commits locales.
-                </Callout>
-              </div>
-            </section>
-
-            <section id="project-management">
-              <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                📊 Project management
-              </h2>
-              <div className="space-y-6">
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-200">GitHub Projects</h3>
-                  <div className="bg-slate-800 p-4 rounded-lg">
-                    <p className="text-slate-300 mb-3">
-                      GitHub Projects es como Trello integrado con tu repositorio. Perfecto para 
-                      gestionar desarrollo de features complejas y coordinación de equipo.
-                    </p>
-                    <div className="grid md:grid-cols-3 gap-4">
-                      <div className="text-center">
-                        <div className="w-12 h-12 bg-gray-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                          📋
-                        </div>
-                        <h5 className="font-semibold text-slate-200">Backlog</h5>
-                        <p className="text-slate-300 text-sm">Ideas y tareas futuras</p>
-                      </div>
-                      <div className="text-center">
-                        <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                          🚧
-                        </div>
-                        <h5 className="font-semibold text-slate-200">In Progress</h5>
-                        <p className="text-slate-300 text-sm">Trabajo activo</p>
-                      </div>
-                      <div className="text-center">
-                        <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-2">
-                          ✅
-                        </div>
-                        <h5 className="font-semibold text-slate-200">Done</h5>
-                        <p className="text-slate-300 text-sm">Completado y mergeado</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-200">Workflow con Projects</h3>
-                  <div className="bg-slate-800 p-4 rounded-lg">
-                    <ol className="space-y-2 text-slate-300 text-sm">
-                      <li><strong>1. Planning:</strong> Crear Issues para todas las tareas del sprint</li>
-                      <li><strong>2. Organizar:</strong> Asignar Issues a columnas y personas</li>
-                      <li><strong>3. Desarrollo:</strong> Mover cards cuando empiezas a trabajar</li>
-                      <li><strong>4. Review:</strong> PRs se linked automáticamente con Issues</li>
-                      <li><strong>5. Delivery:</strong> Al mergear PR, Issue se mueve a "Done" automáticamente</li>
-                    </ol>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-200">Templates para Issues</h3>
-                  <div className="bg-slate-800 p-4 rounded-lg">
-                    <p className="text-slate-300 mb-3">
-                      Crea templates para estandarizar cómo el equipo reporta bugs y solicita features.
-                    </p>
-                    <div className="bg-slate-900 p-3 rounded text-sm text-slate-300">
-                      <div className="text-green-400"># .github/ISSUE_TEMPLATE/bug_report.yml</div>
-                      <div>name: Bug Report</div>
-                      <div>description: File a bug report</div>
-                      <div>body:</div>
-                      <div>&nbsp;&nbsp;- type: textarea</div>
-                      <div>&nbsp;&nbsp;&nbsp;&nbsp;id: what-happened</div>
-                      <div>&nbsp;&nbsp;&nbsp;&nbsp;attributes:</div>
-                      <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;label: What happened?</div>
-                      <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;description: A clear description of the bug</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-200">Automation con Actions</h3>
-                  <div className="bg-slate-800 p-4 rounded-lg">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <h5 className="font-semibold text-slate-200 mb-2">Automaciones útiles:</h5>
-                        <ul className="space-y-1 text-slate-300 text-sm">
-                          <li>• Auto-assign PRs al autor</li>
-                          <li>• Etiquetar PRs por archivos cambiados</li>
-                          <li>• Cerrar Issues stalé automáticamente</li>
-                          <li>• Notify team en Slack sobre releases</li>
-                        </ul>
-                      </div>
-                      <div>
-                        <h5 className="font-semibold text-slate-200 mb-2">CI/CD básico:</h5>
-                        <ul className="space-y-1 text-slate-300 text-sm">
-                          <li>• Ejecutar tests en cada PR</li>
-                          <li>• Lint code style automáticamente</li>
-                          <li>• Build y deploy en merge a main</li>
-                          <li>• Security scan de dependencias</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <Callout type="tip">
-                  <strong>Escalabilidad:</strong> GitHub Projects funciona desde proyectos personales 
-                  hasta equipos de 100+ personas. Empieza simple y añade complejidad según necesites.
-                </Callout>
-              </div>
-            </section>
-
-            <section id="mejores-practicas">
-              <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                🏆 Mejores prácticas
-              </h2>
-              <div className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="card border-l-4 border-l-green-500">
-                    <h4 className="font-semibold text-slate-200 mb-3">✅ Do (Hacer)</h4>
-                    <ul className="space-y-1 text-slate-300 text-sm">
-                      <li>• Escribir Issues descriptivos y reproducibles</li>
-                      <li>• PRs pequeños (&lt; 400 líneas de código)</li>
-                      <li>• Revisar PRs en &lt; 24 horas</li>
-                      <li>• Tests automáticos siempre pasando</li>
-                      <li>• Commits atómicos con mensajes claros</li>
-                      <li>• Documentar decisiones importantes</li>
-                      <li>• Usar templates para consistencia</li>
-                    </ul>
-                  </div>
-
-                  <div className="card border-l-4 border-l-red-500">
-                    <h4 className="font-semibold text-slate-200 mb-3">❌ Don't (No hacer)</h4>
-                    <ul className="space-y-1 text-slate-300 text-sm">
-                      <li>• PRs gigantes (1000+ líneas)</li>
-                      <li>• Commits tipo "fix", "update", "changes"</li>
-                      <li>• Mergear sin review (excepto hotfixes)</li>
-                      <li>• Ignorar failing tests</li>
-                      <li>• Reviews personales o agresivos</li>
-                      <li>• Force push a branches públicas</li>
-                      <li>• Dejar PRs "colgados" sin feedback</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-200">Comunicación efectiva</h3>
-                  <div className="bg-slate-800 p-4 rounded-lg">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div>
-                        <h5 className="font-semibold text-slate-200 mb-2">En Issues:</h5>
-                        <ul className="space-y-1 text-slate-300 text-sm">
-                          <li>• Contexto: ¿qué estabas haciendo?</li>
-                          <li>• Pasos para reproducir el problema</li>
-                          <li>• Comportamiento esperado vs actual</li>
-                          <li>• Screenshots/logs cuando sea relevante</li>
-                          <li>• Entorno: OS, versiones, hardware</li>
-                        </ul>
-                      </div>
-                      <div>
-                        <h5 className="font-semibold text-slate-200 mb-2">En PRs:</h5>
-                        <ul className="space-y-1 text-slate-300 text-sm">
-                          <li>• ¿Por qué se necesita este cambio?</li>
-                          <li>• ¿Qué alternativas consideraste?</li>
-                          <li>• ¿Cómo lo probaste?</li>
-                          <li>• ¿Hay breaking changes?</li>
-                          <li>• ¿Qué debería revisar especialmente?</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-200">Mantener repositorio limpio</h3>
-                  <div className="bg-slate-800 p-4 rounded-lg">
-                    <div className="bg-slate-900 p-3 rounded font-mono text-sm text-green-400">
-                      <div># Limpiar branches mergeadas</div>
-                      <div>git branch --merged | grep -v main | xargs git branch -d</div>
-                      <div className="mt-2"># Actualizar referencias remotas</div>
-                      <div>git remote prune origin</div>
-                      <div className="mt-2"># Limpiar tags locales no existentes en remoto</div>
-                      <div>git tag -l | xargs git tag -d && git fetch --tags</div>
-                    </div>
-                  </div>
-                </div>
-
-                <Callout type="tip">
-                  <strong>Regla 24/48:</strong> Revisar PRs en 24h, responder a reviews en 48h. 
-                  Mantiene flujo productivo y evita context switching excesivo.
-                </Callout>
-              </div>
-            </section>
-
-            <section id="validacion">
-              <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                ✅ Validación final
+                🏗️ Fundamentos del trabajo en equipo
               </h2>
               <div className="space-y-4">
                 <p className="text-slate-300">
-                  Verifica que dominas la colaboración avanzada en GitHub:
+                  Un equipo exitoso en robótica necesita bases sólidas. No es solo juntar personas inteligentes - 
+                  es crear un sistema que funcione como una máquina bien engrasada.
                 </p>
+
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">🎯 Objetivos comunes</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• Visión compartida del proyecto</li>
+                      <li>• Metas claras y medibles</li>
+                      <li>• Prioridades alineadas</li>
+                      <li>• Comprensión del "por qué"</li>
+                    </ul>
+                  </div>
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">🤝 Roles definidos</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• Responsabilidades claras</li>
+                      <li>• Sin solapamientos confusos</li>
+                      <li>• Autoridad para decidir</li>
+                      <li>• Accountability mutua</li>
+                    </ul>
+                  </div>
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">🔄 Procesos claros</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• Cómo tomar decisiones</li>
+                      <li>• Flujo de información</li>
+                      <li>• Protocolos de reunión</li>
+                      <li>• Gestión de cambios</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-blue-900/30 border border-blue-700 p-4 rounded-lg">
+                  <h4 className="font-semibold text-blue-200 mb-2">💡 Ejemplo TARS: Integración Hardware-Software</h4>
+                  <p className="text-blue-100 text-sm mb-2">
+                    Problema típico: Hardware entrega un sensor que software no puede usar porque las especificaciones cambiaron.
+                  </p>
+                  <p className="text-blue-100 text-sm">
+                    <strong>Solución con soft skills:</strong> Comunicación proactiva, reuniones de sincronización semanales, 
+                    documentación actualizada en tiempo real, y testing conjunto desde el día 1.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section id="comunicacion">
+              <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
+                💬 Comunicación efectiva
+              </h2>
+              <div className="space-y-4">
+                <p className="text-slate-300">
+                  La comunicación es el 80% del trabajo en equipo. En TARS necesitamos transmitir ideas complejas 
+                  de forma clara, escuchar activamente y adaptar nuestro mensaje a diferentes audiencias.
+                </p>
+
                 <div className="grid md:grid-cols-2 gap-4">
-                  {[
-                    'Crear Issues detallados y bien estructurados',
-                    'Hacer fork y mantenerlo sincronizado',
-                    'Crear PRs profesionales con descripción completa',
-                    'Realizar code reviews constructivos',
-                    'Entender diferentes estrategias de merge',
-                    'Usar Projects para gestión de tareas',
-                    'Aplicar mejores prácticas de colaboración',
-                    'Contribuir a proyectos open source'
-                  ].map((item, index) => (
-                    <div key={index} className="card">
-                      <div className="flex items-center gap-2">
-                        <span className="text-green-400">✓</span>
-                        <span className="text-slate-300 text-sm">{item}</span>
-                      </div>
-                    </div>
-                  ))}
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">📢 Comunicación clara</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li><strong>Estructura:</strong> Contexto → Problema → Solución → Acción</li>
+                      <li><strong>Ejemplos concretos:</strong> "El motor se para" vs "Motor overheating at 2.3A"</li>
+                      <li><strong>Confirmation:</strong> "¿Entendiste que...?"</li>
+                      <li><strong>Documentación:</strong> Todo por escrito + oral</li>
+                    </ul>
+                  </div>
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">👂 Escucha activa</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li><strong>Atención completa:</strong> Sin distracciones</li>
+                      <li><strong>Parafrasear:</strong> "Entonces dices que..."</li>
+                      <li><strong>Preguntas:</strong> Aclarar antes de asumir</li>
+                      <li><strong>Empatía:</strong> Entender la perspectiva</li>
+                    </ul>
+                  </div>
                 </div>
 
                 <div className="bg-slate-800 p-4 rounded-lg">
-                  <h4 className="font-semibold text-slate-200 mb-2">Proyecto práctico avanzado</h4>
-                  <p className="text-slate-300 text-sm mb-3">
-                    Demuestra tu dominio colaborando en un proyecto real:
+                  <h4 className="font-semibold text-slate-200 mb-3">🎯 Comunicación por contexto en TARS</h4>
+                  <div className="grid md:grid-cols-3 gap-4">
+                    <div>
+                      <h5 className="font-medium text-slate-200 mb-2">⚡ Urgente (Slack)</h5>
+                      <ul className="space-y-1 text-slate-300 text-xs">
+                        <li>• Bugs críticos</li>
+                        <li>• Decisiones inmediatas</li>
+                        <li>• Coordinación en vivo</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 className="font-medium text-slate-200 mb-2">📋 Formal (Email)</h5>
+                      <ul className="space-y-1 text-slate-300 text-xs">
+                        <li>• Decisiones importantes</li>
+                        <li>• Documentación oficial</li>
+                        <li>• Comunicación externa</li>
+                      </ul>
+                    </div>
+                    <div>
+                      <h5 className="font-medium text-slate-200 mb-2">🤝 Personal (Presencial)</h5>
+                      <ul className="space-y-1 text-slate-300 text-xs">
+                        <li>• Feedback sensible</li>
+                        <li>• Resolución de conflictos</li>
+                        <li>• Brainstorming complejo</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <Callout type="warning">
+                  <strong>Anti-patrón común:</strong> Asumir que el otro entiende tu jerga técnica. 
+                  Siempre pregunta: "¿Necesitas que explique algún término?"
+                </Callout>
+              </div>
+            </section>
+
+            <section id="colaboracion">
+              <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
+                🤝 Colaboración práctica
+              </h2>
+              <div className="space-y-4">
+                <p className="text-slate-300">
+                  Colaborar efectivamente va más allá de "trabajar juntos". Es sincronizar esfuerzos, 
+                  compartir conocimiento y crear sinergia donde 1+1=3.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">🔄 Pair Programming/Working</h4>
+                    <p className="text-slate-300 text-sm mb-2">Dos personas, una tarea, mejor resultado:</p>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• <strong>Driver:</strong> Quien ejecuta</li>
+                      <li>• <strong>Navigator:</strong> Quien guía</li>
+                      <li>• Rotar cada 25 minutos</li>
+                      <li>• Pensar en voz alta</li>
+                    </ul>
+                  </div>
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">📚 Knowledge Sharing</h4>
+                    <p className="text-slate-300 text-sm mb-2">Compartir conocimiento activamente:</p>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• Documentar mientras trabajas</li>
+                      <li>• Mini-charlas técnicas</li>
+                      <li>• Code reviews constructivos</li>
+                      <li>• Mentoría peer-to-peer</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-slate-800 p-4 rounded-lg">
+                  <h4 className="font-semibold text-slate-200 mb-3">🎯 Protocolos de colaboración TARS</h4>
+                  <div className="space-y-3">
+                    <div>
+                      <h5 className="font-medium text-slate-200">1. Daily Sync (5 min)</h5>
+                      <p className="text-slate-300 text-sm">¿Qué hiciste? ¿Qué harás? ¿Obstáculos?</p>
+                    </div>
+                    <div>
+                      <h5 className="font-medium text-slate-200">2. Help Protocol</h5>
+                      <p className="text-slate-300 text-sm">15 min stuck → Pregunta. 30 min stuck → Pide pair programming.</p>
+                    </div>
+                    <div>
+                      <h5 className="font-medium text-slate-200">3. Knowledge Artifacts</h5>
+                      <p className="text-slate-300 text-sm">Cada solución importante → Documentada en Wiki.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="resolucion-conflictos">
+              <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
+                🔧 Resolución de conflictos
+              </h2>
+              <div className="space-y-4">
+                <p className="text-slate-300">
+                  Los conflictos son inevitables en proyectos técnicos complejos. La clave no es evitarlos, 
+                  sino resolverlos de forma constructiva y rápida.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">🚫 Conflictos destructivos</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• Ataques personales</li>
+                      <li>• Discusiones públicas acaloradas</li>
+                      <li>• "Siempre" y "nunca"</li>
+                      <li>• Ignorar el problema</li>
+                      <li>• Imposición sin escuchar</li>
+                    </ul>
+                  </div>
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">✅ Conflictos constructivos</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• Enfoque en el problema</li>
+                      <li>• Conversaciones privadas</li>
+                      <li>• Hechos y datos específicos</li>
+                      <li>• Addressing temprano</li>
+                      <li>• Búsqueda de win-win</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-slate-800 p-4 rounded-lg">
+                  <h4 className="font-semibold text-slate-200 mb-3">🎯 Framework de resolución: DESC</h4>
+                  <div className="space-y-2">
+                    <div><strong className="text-slate-200">Describe:</strong> <span className="text-slate-300">"Cuando veo que..."</span></div>
+                    <div><strong className="text-slate-200">Express:</strong> <span className="text-slate-300">"Me siento..."</span></div>
+                    <div><strong className="text-slate-200">Specify:</strong> <span className="text-slate-300">"Me gustaría que..."</span></div>
+                    <div><strong className="text-slate-200">Consequences:</strong> <span className="text-slate-300">"Así podríamos..."</span></div>
+                  </div>
+                </div>
+
+                <div className="bg-yellow-900/30 border border-yellow-700 p-4 rounded-lg">
+                  <h4 className="font-semibold text-yellow-200 mb-2">⚡ Ejemplo real: Conflicto técnico</h4>
+                  <p className="text-yellow-100 text-sm mb-2">
+                    <strong>Situación:</strong> Software quiere usar ROS 2, Hardware prefiere comunicación directa por velocidad.
                   </p>
-                  <ol className="space-y-1 text-slate-300 text-sm">
-                    <li>1. <strong>Fork</strong> un proyecto ROS open source que te interese</li>
-                    <li>2. <strong>Encuentra</strong> un Issue etiquetado como "good first issue"</li>
-                    <li>3. <strong>Crea</strong> una branch específica para esa tarea</li>
-                    <li>4. <strong>Implementa</strong> la solución con commits bien documentados</li>
-                    <li>5. <strong>Push</strong> y crea un PR siguiendo el template del proyecto</li>
-                    <li>6. <strong>Responde</strong> a feedback del maintainer profesionalmente</li>
-                    <li>7. <strong>Celebra</strong> tu primera contribución open source! 🎉</li>
-                  </ol>
+                  <p className="text-yellow-100 text-sm">
+                    <strong>Resolución DESC:</strong> "Veo que priorizas velocidad (D). Me preocupa la mantenibilidad (E). 
+                    ¿Podríamos hacer pruebas de performance con ambos? (S). Así decidiremos con datos (C)."
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section id="liderazgo">
+              <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
+                👑 Liderazgo y responsabilidad
+              </h2>
+              <div className="space-y-4">
+                <p className="text-slate-300">
+                  En TARS, todos somos líderes en algún momento. El liderazgo no es un título - 
+                  es tomar responsabilidad por los resultados del equipo.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">🎯 Liderazgo técnico</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• <strong>Decisiones:</strong> Basadas en datos</li>
+                      <li>• <strong>Arquitectura:</strong> Explicar el "por qué"</li>
+                      <li>• <strong>Standards:</strong> Definir y mantener</li>
+                      <li>• <strong>Mentoría:</strong> Ayudar a crecer</li>
+                    </ul>
+                  </div>
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">🤝 Liderazgo de equipo</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• <strong>Facilitación:</strong> Meetings efectivos</li>
+                      <li>• <strong>Motivación:</strong> Reconocer contribuciones</li>
+                      <li>• <strong>Coordinación:</strong> Sincronizar esfuerzos</li>
+                      <li>• <strong>Protección:</strong> Shield del ruido externo</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-slate-800 p-4 rounded-lg">
+                  <h4 className="font-semibold text-slate-200 mb-3">⚡ Responsabilidad compartida</h4>
+                  <div className="space-y-2">
+                    <p className="text-slate-300 text-sm">
+                      <strong>Individual:</strong> "Yo soy responsable de mis tareas, mi calidad y mi comunicación."
+                    </p>
+                    <p className="text-slate-300 text-sm">
+                      <strong>Colectiva:</strong> "Todos somos responsables del éxito del proyecto y del bienestar del equipo."
+                    </p>
+                  </div>
+                </div>
+
+                <Callout type="tip">
+                  <strong>Liderazgo situacional:</strong> En debugging crítico, lidera quien mejor conoce el sistema. 
+                  En presentaciones, lidera quien mejor comunica. El liderazgo rota según el contexto.
+                </Callout>
+              </div>
+            </section>
+
+            <section id="gestion-tiempo">
+              <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
+                ⏰ Gestión del tiempo en equipo
+              </h2>
+              <div className="space-y-4">
+                <p className="text-slate-300">
+                  El tiempo es nuestro recurso más limitado en TARS. Una gestión efectiva del tiempo en equipo 
+                  significa sincronización, priorización y respeto mutuo por el tiempo de otros.
+                </p>
+
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">📅 Planificación</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• Estimaciones realistas</li>
+                      <li>• Buffer para imprevistos</li>
+                      <li>• Dependencias claras</li>
+                      <li>• Milestones verificables</li>
+                    </ul>
+                  </div>
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">🎯 Priorización</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• Matriz Importante/Urgente</li>
+                      <li>• Value-driven decisions</li>
+                      <li>• "No" como herramienta</li>
+                      <li>• Focus en bloqueadores</li>
+                    </ul>
+                  </div>
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">⚡ Ejecución</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• Time-boxing</li>
+                      <li>• Pomodoro en grupo</li>
+                      <li>• Async cuando posible</li>
+                      <li>• Interruptions protocol</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-slate-800 p-4 rounded-lg">
+                  <h4 className="font-semibold text-slate-200 mb-3">🎯 Meetings eficientes en TARS</h4>
+                  <div className="space-y-2">
+                    <div><strong className="text-slate-200">Antes:</strong> <span className="text-slate-300">Agenda + materiales 24h antes</span></div>
+                    <div><strong className="text-slate-200">Durante:</strong> <span className="text-slate-300">Timekeeper + note-taker + decisions tracker</span></div>
+                    <div><strong className="text-slate-200">Después:</strong> <span className="text-slate-300">Action items + owners + deadlines</span></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="ambiente-positivo">
+              <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
+                🌟 Crear ambiente positivo
+              </h2>
+              <div className="space-y-4">
+                <p className="text-slate-300">
+                  Un ambiente positivo no es "todo está bien" - es un ambiente donde las personas se sienten 
+                  seguras para innovar, fallar, aprender y dar lo mejor de sí mismas.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">🛡️ Seguridad psicológica</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• Preguntas sin juicio</li>
+                      <li>• Errores como aprendizaje</li>
+                      <li>• Ideas "locas" bienvenidas</li>
+                      <li>• Vulnerabilidad compartida</li>
+                    </ul>
+                  </div>
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">🎉 Reconocimiento</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• Celebrar pequeñas victorias</li>
+                      <li>• Reconocimiento público</li>
+                      <li>• Growth mindset</li>
+                      <li>• Contributions diverse</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-slate-800 p-4 rounded-lg">
+                  <h4 className="font-semibold text-slate-200 mb-3">⚡ Rituales positivos TARS</h4>
+                  <div className="space-y-2">
+                    <div><strong className="text-slate-200">Demo Friday:</strong> <span className="text-slate-300">Cada viernes, 10 min para mostrar algo cool</span></div>
+                    <div><strong className="text-slate-200">Learning Lunch:</strong> <span className="text-slate-300">Almuerzo + micro-charla técnica</span></div>
+                    <div><strong className="text-slate-200">Fail Party:</strong> <span className="text-slate-300">Celebrar los mejores "learning failures"</span></div>
+                    <div><strong className="text-slate-200">Help Hero:</strong> <span className="text-slate-300">Reconocer quien más ayudó esta semana</span></div>
+                  </div>
                 </div>
 
                 <Callout type="check">
-                  <strong>¡Excelente!</strong> Ahora tienes las habilidades para colaborar profesionalmente 
-                  en cualquier proyecto. Estás listo para contribuir a ROS, participar en hackathons, 
-                  y trabajar en equipos de desarrollo de robótica.
+                  <strong>Cultura de apoyo:</strong> "No sé" es una respuesta perfectamente válida. 
+                  "Ayúdame a entender" es mejor que fingir que sabes.
                 </Callout>
+              </div>
+            </section>
+
+            <section id="feedback">
+              <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
+                📝 Dar y recibir feedback
+              </h2>
+              <div className="space-y-4">
+                <p className="text-slate-300">
+                  El feedback efectivo acelera el crecimiento y mejora la calidad. En un equipo técnico, 
+                  necesitamos feedback tanto en soft skills como en habilidades técnicas.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">💬 Dar feedback</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• <strong>SBI Model:</strong> Situación + comportamiento + Impacto</li>
+                      <li>• <strong>Timing:</strong> Tan pronto como sea apropiado</li>
+                      <li>• <strong>Específico:</strong> Ejemplos concretos</li>
+                      <li>• <strong>Actionable:</strong> Qué hacer diferente</li>
+                      <li>• <strong>Balanceado:</strong> Fortalezas + mejoras</li>
+                    </ul>
+                  </div>
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">👂 Recibir feedback</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• <strong>Escucha:</strong> Sin defenderse</li>
+                      <li>• <strong>Pregunta:</strong> Ejemplos específicos</li>
+                      <li>• <strong>Agradece:</strong> El esfuerzo de ayudar</li>
+                      <li>• <strong>Reflexiona:</strong> Qué parte es cierta</li>
+                      <li>• <strong>Actúa:</strong> Plan de mejora</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-slate-800 p-4 rounded-lg">
+                  <h4 className="font-semibold text-slate-200 mb-3">🎯 Template SBI para feedback técnico</h4>
+                  <div className="space-y-2">
+                    <div><strong className="text-slate-200">Situación:</strong> <span className="text-slate-300">"En el code review de ayer..."</span></div>
+                    <div><strong className="text-slate-200">Comportamiento:</strong> <span className="text-slate-300">"Noté que los comentarios fueron muy técnicos..."</span></div>
+                    <div><strong className="text-slate-200">Impacto:</strong> <span className="text-slate-300">"El junior developer se veía confundido..."</span></div>
+                    <div><strong className="text-slate-200">Sugerencia:</strong> <span className="text-slate-300">"¿Podrías incluir el 'por qué' junto al 'qué'?"</span></div>
+                  </div>
+                </div>
+
+                <Callout type="info">
+                  <strong>Feedback continuo:</strong> En lugar de feedback formal mensual, cultiva micro-feedback diario. 
+                  "Esa explicación fue super clara" o "¿Podrías simplificar esa función?"
+                </Callout>
+              </div>
+            </section>
+
+            <section id="herramientas">
+              <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
+                🛠️ Herramientas de colaboración
+              </h2>
+              <div className="space-y-4">
+                <p className="text-slate-300">
+                  Las herramientas no hacen la colaboración, pero las herramientas correctas la facilitan enormemente. 
+                  Aquí está el stack de colaboración recomendado para TARS.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">💬 Comunicación</h4>
+                    <ul className="space-y-2 text-slate-300 text-sm">
+                      <li>• <strong>Slack:</strong> Chat diario + voice channels</li>
+                      <li>• <strong>Email:</strong> Decisiones importantes</li>
+                      <li>• <strong>WhatsApp:</strong> Coordinación urgente</li>
+                      <li>• <strong>Google Meet:</strong> Reuniones formales</li>
+                    </ul>
+                  </div>
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">📋 Gestión de proyectos</h4>
+                    <ul className="space-y-2 text-slate-300 text-sm">
+                      <li>• <strong>GitHub Projects:</strong> Issues + PRs + roadmap</li>
+                      <li>• <strong>Google Drive:</strong> Documentación + wiki</li>
+                      <li>• <strong>Miro:</strong> Brainstorming + diagramas</li>
+                      <li>• <strong>Google Calendar:</strong> Sincronización temporal</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">📁 Archivos</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• Google Drive: Docs compartidos</li>
+                      <li>• GitHub: Código + documentación</li>
+                      <li>• Figma: Diseños UI/UX</li>
+                    </ul>
+                  </div>
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">🤝 Colaboración en vivo</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• VS Code Live Share</li>
+                      <li>• Google Docs simultáneo</li>
+                      <li>• Miro collaborative boards</li>
+                    </ul>
+                  </div>
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">📊 Monitoreo</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• GitHub Insights</li>
+                      <li>• Time tracking (opcional)</li>
+                      <li>• Team mood check-ins</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="bg-blue-900/30 border border-blue-700 p-4 rounded-lg">
+                  <h4 className="font-semibold text-blue-200 mb-2">⚡ Protocolo de comunicación TARS</h4>
+                  <div className="text-blue-100 text-sm space-y-1">
+                    <p>• <strong>Urgente (≤ 2h):</strong> Slack DM + @mention</p>
+                    <p>• <strong>Importante (≤ 24h):</strong> Slack channel + email</p>
+                    <p>• <strong>Normal (≤ 3 días):</strong> GitHub issue/PR</p>
+                    <p>• <strong>FYI:</strong> Google Drive update + Slack summary</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="casos-practicos">
+              <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
+                💡 Casos prácticos TARS
+              </h2>
+              <div className="space-y-4">
+                <p className="text-slate-300">
+                  Situaciones reales que ocurren en TARS y cómo aplicar soft skills para resolverlas efectivamente.
+                </p>
+
+                <div className="space-y-6">
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">🚨 Caso 1: Crisis pre-competencia</h4>
+                    <p className="text-slate-300 text-sm mb-2">
+                      <strong>Situación:</strong> 2 semanas antes del ERC, el algoritmo de navegación falla. 
+                      Hardware culpa a software, software culpa a especificaciones cambiantes.
+                    </p>
+                    <div className="bg-slate-700 p-3 rounded">
+                      <p className="text-slate-200 text-sm font-medium mb-1">Aplicación de soft skills:</p>
+                      <ul className="text-slate-300 text-sm space-y-1">
+                        <li>• <strong>Liderazgo:</strong> Alguien toma control, define war room</li>
+                        <li>• <strong>Comunicación:</strong> Facts vs emotions, status updates cada 2h</li>
+                        <li>• <strong>Colaboración:</strong> Pair debugging hardware+software</li>
+                        <li>• <strong>Gestión tiempo:</strong> Triage: fix crítico vs nice-to-have</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">🤝 Caso 2: Conflicto de arquitectura</h4>
+                    <p className="text-slate-300 text-sm mb-2">
+                      <strong>Situación:</strong> Senior developer quiere refactorizar todo el stack. 
+                      Junior developers se sienten overwhelmed y prefieren mantener código existente.
+                    </p>
+                    <div className="bg-slate-700 p-3 rounded">
+                      <p className="text-slate-200 text-sm font-medium mb-1">Aplicación de soft skills:</p>
+                      <ul className="text-slate-300 text-sm space-y-1">
+                        <li>• <strong>Escucha activa:</strong> Entender perspectivas de ambos lados</li>
+                        <li>• <strong>Resolución conflictos:</strong> Focus en objetivos comunes</li>
+                        <li>• <strong>Liderazgo:</strong> Decisión basada en datos + timeline</li>
+                        <li>• <strong>Ambiente positivo:</strong> Plan de mentoring durante transición</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">⏰ Caso 3: Burnout de equipo</h4>
+                    <p className="text-slate-300 text-sm mb-2">
+                      <strong>Situación:</strong> 3 meses de trabajo intenso. Algunos miembros trabajando 12h/día. 
+                      Calidad de código degradándose, moral baja.
+                    </p>
+                    <div className="bg-slate-700 p-3 rounded">
+                      <p className="text-slate-200 text-sm font-medium mb-1">Aplicación de soft skills:</p>
+                      <ul className="text-slate-300 text-sm space-y-1">
+                        <li>• <strong>Liderazgo:</strong> Reconocer señales, parar la espiral</li>
+                        <li>• <strong>Gestión tiempo:</strong> Forced breaks, scope reduction</li>
+                        <li>• <strong>Comunicación:</strong> One-on-ones honestos</li>
+                        <li>• <strong>Ambiente positivo:</strong> Team building, celebrar progress</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">🆕 Caso 4: Integración de nuevo miembro</h4>
+                    <p className="text-slate-300 text-sm mb-2">
+                      <strong>Situación:</strong> Nuevo miembro con mucha experiencia pero de dominio diferente. 
+                      Equipo existente reacio a cambios en procesos establecidos.
+                    </p>
+                    <div className="bg-slate-700 p-3 rounded">
+                      <p className="text-slate-200 text-sm font-medium mb-1">Aplicación de soft skills:</p>
+                      <ul className="text-slate-300 text-sm space-y-1">
+                        <li>• <strong>Ambiente positivo:</strong> Onboarding buddy system</li>
+                        <li>• <strong>Comunicación:</strong> Knowledge transfer sessions</li>
+                        <li>• <strong>Colaboración:</strong> Pair programming para context</li>
+                        <li>• <strong>Feedback:</strong> 2-way feedback primeras semanas</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
               </div>
             </section>
 
             <section id="recursos">
               <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                🔗 Recursos y referencias
+                📚 Recursos adicionales
               </h2>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="card">
-                  <h4 className="font-semibold text-slate-200 mb-2">GitHub oficial</h4>
-                  <ul className="space-y-1 text-slate-300 text-sm">
-                    <li>• <a href="https://docs.github.com/en/pull-requests" className="text-blue-400 hover:underline">Pull Request docs</a></li>
-                    <li>• <a href="https://docs.github.com/en/issues" className="text-blue-400 hover:underline">Issues docs</a></li>
-                    <li>• <a href="https://github.com/features/project-management" className="text-blue-400 hover:underline">GitHub Projects</a></li>
-                    <li>• <a href="https://github.com/skills" className="text-blue-400 hover:underline">GitHub Skills (practice)</a></li>
-                  </ul>
+              <div className="space-y-4">
+                <p className="text-slate-300">
+                  Recursos para seguir desarrollando tus soft skills y la cultura de equipo en TARS.
+                </p>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">📖 Libros recomendados</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• <strong>Team effectiveness:</strong> "The Five Dysfunctions of a Team"</li>
+                      <li>• <strong>Communication:</strong> "Crucial Conversations"</li>
+                      <li>• <strong>Leadership:</strong> "The Servant Leader"</li>
+                      <li>• <strong>Culture:</strong> "Team Topologies"</li>
+                    </ul>
+                  </div>
+                  <div className="bg-slate-800 p-4 rounded-lg">
+                    <h4 className="font-semibold text-slate-200 mb-2">🎯 Práctica diaria</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• Daily reflection: "¿Cómo colaboré hoy?"</li>
+                      <li>• Micro-feedback: Un feedback positivo diario</li>
+                      <li>• Active listening: En cada conversación</li>
+                      <li>• Help someone: Al menos una vez por día</li>
+                    </ul>
+                  </div>
                 </div>
-                <div className="card">
-                  <h4 className="font-semibold text-slate-200 mb-2">Proyectos para practicar</h4>
-                  <ul className="space-y-1 text-slate-300 text-sm">
-                    <li>• <a href="https://github.com/ros" className="text-blue-400 hover:underline">ROS Organization</a></li>
-                    <li>• <a href="https://github.com/osrf" className="text-blue-400 hover:underline">Open Source Robotics Foundation</a></li>
-                    <li>• <a href="https://github.com/nasa" className="text-blue-400 hover:underline">NASA Open Source</a></li>
-                    <li>• <a href="https://goodfirstissue.dev" className="text-blue-400 hover:underline">Good First Issue</a></li>
-                  </ul>
+
+                <div className="bg-slate-800 p-4 rounded-lg">
+                  <h4 className="font-semibold text-slate-200 mb-2">🎯 Auto-evaluación mensual</h4>
+                  <div className="space-y-2">
+                    <p className="text-slate-300 text-sm">Pregúntate honestamente:</p>
+                    <ul className="text-slate-300 text-sm space-y-1">
+                      <li>• ¿Comunico de forma clara y oportuna?</li>
+                      <li>• ¿Escucho activamente o espero mi turno para hablar?</li>
+                      <li>• ¿Contribuyo a un ambiente positivo?</li>
+                      <li>• ¿Ayudo a otros a crecer?</li>
+                      <li>• ¿Manejo los conflictos constructivamente?</li>
+                    </ul>
+                  </div>
                 </div>
+
+                <Callout type="check">
+                  <strong>Crecimiento continuo:</strong> Las soft skills se desarrollan con práctica deliberada. 
+                  Cada interacción es una oportunidad de mejora.
+                </Callout>
               </div>
             </section>
-            </div>
 
-            <TutorialNavigation 
-              previous={{ title: "Git & GitHub básico", href: "/tutoriales/git-github" }}
-              next={{ title: "Inicio", href: "/" }}
-            />
+            </div>
           </main>
 
-          <aside className="lg:col-span-1">
-            <TableOfContents items={tocItems} />
+          <aside className="lg:col-span-1 xl:col-span-1">
+            <div className="sticky top-8">
+              <TableOfContents items={tocItems} />
+            </div>
           </aside>
         </div>
       </div>
+      
+      <TutorialNavigation 
+        previous={{
+          title: "Git & GitHub",
+          href: "/tutoriales/git-github"
+        }}
+        next={{
+          title: "Buenas Prácticas de Código",
+          href: "/tutoriales/buenas-practicas-codigo"
+        }}
+      />
     </div>
   );
 }

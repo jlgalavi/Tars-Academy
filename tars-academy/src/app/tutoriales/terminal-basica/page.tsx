@@ -1,3 +1,5 @@
+'use client';
+
 import Breadcrumb from "@/components/tutorial/Breadcrumb";
 import TutorialChip from "@/components/tutorial/TutorialChip";
 import Callout from "@/components/tutorial/Callout";
@@ -5,18 +7,32 @@ import TableOfContents from "@/components/tutorial/TableOfContents";
 import TutorialNavigation from "@/components/tutorial/TutorialNavigation";
 
 export default function TerminalBasica() {
+  const handleStartClick = () => {
+    const element = document.getElementById('conceptos-basicos');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handlePrerequisitesClick = () => {
+    const element = document.getElementById('prerequisitos');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const tocItems = [
-    { id: "introduccion", title: "¿Por qué aprender terminal?", level: 2 },
-    { id: "prerequisitos", title: "Prerequisitos", level: 2 },
-    { id: "conceptos-basicos", title: "Conceptos básicos", level: 2 },
-    { id: "navegacion", title: "Navegación de archivos", level: 2 },
-    { id: "manipulacion-archivos", title: "Manipulación de archivos", level: 2 },
-    { id: "permisos", title: "Permisos y sudo", level: 2 },
-    { id: "busqueda", title: "Búsqueda y filtros", level: 2 },
-    { id: "procesos", title: "Gestión de procesos", level: 2 },
-    { id: "comandos-robotica", title: "Comandos para robótica", level: 2 },
-    { id: "tips-productividad", title: "Tips de productividad", level: 2 },
-    { id: "validacion", title: "Validación final", level: 2 },
+    { id: "introduccion", title: "🎯 ¿Por qué aprender terminal?", level: 2 },
+    { id: "prerequisitos", title: "📋 Prerrequisitos", level: 2 },
+    { id: "conceptos-basicos", title: "🎤 Conceptos básicos", level: 2 },
+    { id: "navegacion", title: "🗺️ Navegación de archivos", level: 2 },
+    { id: "manipulacion-archivos", title: "📝 Manipulación de archivos", level: 2 },
+    { id: "permisos", title: "🔒 Permisos y sudo", level: 2 },
+    { id: "busqueda", title: "🔍 Búsqueda y filtros", level: 2 },
+    { id: "procesos", title: "⚙️ Gestión de procesos", level: 2 },
+    { id: "comandos-robotica", title: "🤖 Comandos para robótica", level: 2 },
+    { id: "tips-productividad", title: "⚡ Tips de productividad", level: 2 },
+    { id: "validacion", title: "✅ Validación final", level: 2 },
     { id: "recursos", title: "Recursos", level: 2 }
   ];
 
@@ -50,10 +66,10 @@ export default function TerminalBasica() {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mt-6">
-                <button className="btn-primary">
+                <button className="btn-primary" onClick={handleStartClick}>
                   🚀 Empezar ahora
                 </button>
-                <button className="btn-secondary">
+                <button className="btn-secondary" onClick={handlePrerequisitesClick}>
                   📋 Ver requisitos
                 </button>
               </div>
@@ -103,7 +119,7 @@ export default function TerminalBasica() {
 
             <section id="prerequisitos">
               <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                📋 Prerequisitos
+                📋 Prerrequisitos
               </h2>
               <div className="space-y-4">
                 <div className="bg-slate-800 p-4 rounded-lg">
@@ -408,8 +424,8 @@ export default function TerminalBasica() {
                   <div className="card border-l-4 border-l-blue-500">
                     <h4 className="font-semibold text-slate-200 mb-3">find - Buscar archivos</h4>
                     <div className="bg-slate-900 p-2 rounded font-mono text-sm text-green-400">
-                      <div>$ find . -name \"*.py\"</div>
-                      <div>$ find /opt/ros -name \"*msg*\"</div>
+                      <div>$ find . -name &quot;*.py&quot;</div>
+                      <div>$ find /opt/ros -name &quot;*msg*&quot;</div>
                       <div>$ find ~ -type f -size +100M</div>
                     </div>
                     <p className="text-slate-300 text-sm mt-2">
@@ -420,8 +436,8 @@ export default function TerminalBasica() {
                   <div className="card border-l-4 border-l-green-500">
                     <h4 className="font-semibold text-slate-200 mb-3">grep - Buscar en contenido</h4>
                     <div className="bg-slate-900 p-2 rounded font-mono text-sm text-green-400">
-                      <div>$ grep -r \"rclpy\" src/</div>
-                      <div>$ grep -n \"class\" mi_nodo.py</div>
+                      <div>$ grep -r &quot;rclpy&quot; src/</div>
+                      <div>$ grep -n &quot;class&quot; mi_nodo.py</div>
                       <div>$ ps aux | grep ros</div>
                     </div>
                     <p className="text-slate-300 text-sm mt-2">
@@ -491,7 +507,7 @@ export default function TerminalBasica() {
                     <div className="bg-slate-900 p-2 rounded font-mono text-sm text-green-400">
                       <div>$ kill 1234</div>
                       <div>$ killall python3</div>
-                      <div>$ pkill -f \"mi_nodo\"</div>
+                      <div>$ pkill -f &quot;mi_nodo&quot;</div>
                     </div>
                     <p className="text-slate-300 text-sm mt-2">
                       Por PID, nombre o patrón
@@ -552,11 +568,12 @@ export default function TerminalBasica() {
                   <h3 className="text-xl font-semibold text-slate-200">Desarrollo y debugging</h3>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="bg-slate-800 p-4 rounded-lg">
-                      <h5 className="font-semibold text-slate-200 mb-2">Git workflow</h5>
+                      <h5 className="font-semibold text-slate-200 mb-2">Git workflow (SSH)</h5>
                       <div className="bg-slate-900 p-2 rounded font-mono text-sm text-green-400">
+                        <div>$ git clone git@github.com:TarsRobotics/proyecto.git</div>
                         <div>$ git status</div>
                         <div>$ git add .</div>
-                        <div>$ git commit -m \"mensaje\"</div>
+                        <div>$ git commit -m &quot;mensaje&quot;</div>
                         <div>$ git push origin main</div>
                       </div>
                     </div>
@@ -577,7 +594,7 @@ export default function TerminalBasica() {
                   <div className="space-y-2 text-slate-300 text-sm">
                     <div className="bg-slate-900 p-2 rounded font-mono text-green-400">
                       <div># Ver todos los nodos y sus topics</div>
-                      <div>ros2 node list | xargs -I {} sh -c 'echo \"Node: {}\"; ros2 node info {}'</div>
+                      <div>ros2 node list | xargs -I {} sh -c &apos;echo &quot;Node: {}&quot;; ros2 node info {}&apos;</div>
                     </div>
                     <div className="bg-slate-900 p-2 rounded font-mono text-green-400">
                       <div># Backup rápido de workspace</div>
@@ -585,7 +602,7 @@ export default function TerminalBasica() {
                     </div>
                     <div className="bg-slate-900 p-2 rounded font-mono text-green-400">
                       <div># Monitor de recursos de nodos ROS</div>
-                      <div>watch -n 1 'ps aux | grep ros2 | grep -v grep'</div>
+                      <div>watch -n 1 &apos;ps aux | grep ros2 | grep -v grep&apos;</div>
                     </div>
                   </div>
                 </div>
@@ -604,10 +621,10 @@ export default function TerminalBasica() {
                       Añade a <code>~/.bashrc</code> para comandos frecuentes:
                     </p>
                     <div className="bg-slate-900 p-2 rounded font-mono text-xs text-green-400">
-                      <div>alias ll='ls -la'</div>
-                      <div>alias rws='cd ~/ros2_ws && source install/setup.bash'</div>
-                      <div>alias cb='colcon build'</div>
-                      <div>alias rn='ros2 node list'</div>
+                      <div>alias ll=&apos;ls -la&apos;</div>
+                      <div>alias rws=&apos;cd ~/ros2_ws && source install/setup.bash&apos;</div>
+                      <div>alias cb=&apos;colcon build&apos;</div>
+                      <div>alias rn=&apos;ros2 node list&apos;</div>
                     </div>
                   </div>
                   
@@ -631,7 +648,7 @@ export default function TerminalBasica() {
                     <div className="bg-slate-900 p-2 rounded font-mono text-xs text-green-400">
                       <div>rosclean() &#123;</div>
                       <div>  rm -rf build/ install/ log/</div>
-                      <div>  echo \"Workspace cleaned\"</div>
+                      <div>  echo &quot;Workspace cleaned&quot;</div>
                       <div>&#125;</div>
                     </div>
                   </div>
@@ -737,7 +754,9 @@ export default function TerminalBasica() {
           </main>
 
           <aside className="lg:col-span-1">
-            <TableOfContents items={tocItems} />
+            <div className="sticky top-8">
+              <TableOfContents items={tocItems} />
+            </div>
           </aside>
         </div>
       </div>

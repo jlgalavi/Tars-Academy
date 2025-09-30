@@ -90,7 +90,7 @@ export default function TableOfContents({ items }: TableOfContentsProps) {
               📋 Índice
             </h3>
             <nav>
-              <ul className="space-y-1 max-h-[70vh] overflow-y-auto scrollbar-hide">
+              <ul className="space-y-1 max-h-[70vh] overflow-y-auto tutorial-toc">
                 {items.map((item) => (
                   <li key={item.id}>
                     <button

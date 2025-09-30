@@ -1,4 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
+'use client';
+
 import Breadcrumb from '@/components/tutorial/Breadcrumb';
 import TutorialChip from '@/components/tutorial/TutorialChip';
 import Callout from '@/components/tutorial/Callout';
@@ -34,6 +36,20 @@ const tocItems = [
 ];
 
 export default function BuenasPracticasCodigo() {
+  const handleStartClick = () => {
+    const element = document.getElementById('principios-comunes');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handlePrerequisitesClick = () => {
+    const element = document.getElementById('validacion');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-900">
       <div className="container mx-auto max-w-7xl px-6 py-8">
@@ -67,11 +83,11 @@ export default function BuenasPracticasCodigo() {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="btn-primary">
+                <button className="btn-primary" onClick={handleStartClick}>
                   🚀 Empezar ahora
                 </button>
-                <button className="btn-secondary">
-                  📋 Ver requisitos
+                <button className="btn-secondary" onClick={handlePrerequisitesClick}>
+                  ✅ Ver checklist
                 </button>
               </div>
             </div>
@@ -802,7 +818,9 @@ print(data)`}
 
           {/* Sidebar con TOC */}
           <aside className="lg:col-span-1">
-            <TableOfContents items={tocItems} />
+            <div className="sticky top-8">
+              <TableOfContents items={tocItems} />
+            </div>
           </aside>
         </div>
       </div>

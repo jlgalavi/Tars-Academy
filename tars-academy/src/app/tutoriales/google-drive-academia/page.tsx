@@ -1,4 +1,5 @@
-/* eslint-disable react/no-unescaped-entities */
+'use client';
+
 import Breadcrumb from '@/components/tutorial/Breadcrumb';
 import TutorialChip from '@/components/tutorial/TutorialChip';
 import Callout from '@/components/tutorial/Callout';
@@ -6,482 +7,429 @@ import TableOfContents from '@/components/tutorial/TableOfContents';
 import TutorialNavigation from '@/components/tutorial/TutorialNavigation';
 
 const tocItems = [
-  { id: 'objetivo', title: '🎯 Objetivo', level: 2 },
-  { id: 'contexto', title: '🧭 Contexto', level: 2 },
-  { id: 'requisitos', title: '✅ Requisitos previos', level: 2 },
-  { id: 'pasos', title: '🛠️ Pasos guiados', level: 2 },
-  { id: 'paso-1', title: '1. Crear estructura de carpetas', level: 3 },
-  { id: 'paso-2', title: '2. Configurar permisos', level: 3 },
-  { id: 'paso-3', title: '3. Compartir con equipo', level: 3 },
-  { id: 'paso-4', title: '4. Nomenclatura de archivos', level: 3 },
-  { id: 'paso-5', title: '5. Control de versiones', level: 3 },
-  { id: 'validacion', title: '🧪 Validación final', level: 2 },
+  { id: 'introduccion', title: '🎯 Introducción al TARS Drive', level: 2 },
+  { id: 'estructura-general', title: '📁 Estructura general de carpetas', level: 2 },
+  { id: 'departamentos', title: 'Carpetas por departamento', level: 3 },
+  { id: 'software-detalle', title: '💻 Carpeta de Software (detalle)', level: 2 },
+  { id: 'general-software', title: '10_General', level: 3 },
+  { id: 'equipos-software', title: '11_Equipos', level: 3 },
+  { id: 'recursos-software', title: '12_Recursos', level: 3 },
+  { id: 'academia-software', title: '13_Academia', level: 3 },
+  { id: 'tareas-software', title: '14_Tareas', level: 3 },
+  { id: 'buenas-practicas', title: '📋 Buenas prácticas de uso', level: 2 },
+  { id: 'permisos', title: '🔒 Permisos y responsabilidades', level: 2 },
+  { id: 'nomenclatura', title: '📝 Nomenclatura de archivos', level: 2 },
   { id: 'problemas', title: '🚑 Problemas frecuentes', level: 2 },
-  { id: 'recursos', title: '🔗 Recursos', level: 2 },
-  { id: 'siguientes', title: '➡️ Siguientes pasos', level: 2 },
 ];
 
 export default function GoogleDriveAcademia() {
+  const handleStartClick = () => {
+    const element = document.getElementById('estructura-general');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handlePrerequisitesClick = () => {
+    const element = document.getElementById('buenas-practicas');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-900">
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="flex gap-8">
+      <div className="container mx-auto max-w-7xl px-6 py-8">
+        <div className="grid lg:grid-cols-5 xl:grid-cols-4 gap-8">
           {/* Contenido principal */}
-          <div className="flex-1 max-w-4xl">
+          <main className="lg:col-span-4 xl:col-span-3 max-w-4xl mx-auto lg:mx-0">
             {/* Cabecera */}
             <div className="mb-8">
               <Breadcrumb 
                 items={[
                   { label: 'Inicio', href: '/' },
-                  { label: 'Herramientas', href: '/herramientas' },
-                  { label: 'Google Drive para Academia' }
+                  { label: 'Tutoriales', href: '/' },
+                  { label: 'TARS Drive - Guía de uso' }
                 ]}
               />
               
               <h1 className="text-4xl font-bold text-slate-100 mb-4">
-                Google Drive para Academia (organización y colaboración)
+                🗂️ TARS Drive - Guía de uso y organización
               </h1>
               
               <p className="text-xl text-slate-300 mb-6">
-                Configura tu Google Drive con la estructura y permisos correctos para trabajar en equipo en proyectos de robótica.
+                Aprende a navegar y utilizar correctamente la estructura de carpetas del equipo TARS Robotics. 
+                Organización, permisos y buenas prácticas para el trabajo colaborativo.
               </p>
               
               <div className="flex flex-wrap gap-3 mb-6">
-                <TutorialChip label="Intermedio" variant="level" icon="📚" />
-                <TutorialChip label="20 min" variant="time" icon="⏱️" />
-                <TutorialChip label="Actualizado 09/2025" variant="updated" icon="🔄" />
-                <TutorialChip label="Verificado con Drive v2025" variant="status" icon="✅" />
+                <TutorialChip label="Equipo TARS" variant="level" icon="🤖" />
+                <TutorialChip label="Organización" variant="status" icon="📁" />
+                <TutorialChip label="Básico" variant="status" icon="📚" />
+                <TutorialChip label="Actualizado 09/2025" variant="updated" icon="📅" />
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="btn-primary">
+                <button className="btn-primary" onClick={handleStartClick}>
                   🚀 Empezar ahora
                 </button>
-                <button className="btn-secondary">
-                  📋 Ver requisitos
+                <button className="btn-secondary" onClick={handlePrerequisitesClick}>
+                  📋 Buenas prácticas
                 </button>
               </div>
             </div>
 
             {/* Contenido del tutorial */}
-            <div className="prose prose-invert max-w-none space-y-8">
+            <div className="prose prose-invert max-w-none space-y-8 [&_pre]:scrollbar-none [&_pre]:hover:scrollbar-thin [&_pre:hover]:scrollbar-thumb-transparent [&_pre:hover]:scrollbar-track-transparent">
               
-              <section id="objetivo">
+              <section id="introduccion">
                 <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                  🎯 Objetivo
+                  🎯 Introducción al TARS Drive
                 </h2>
-                <p className="text-slate-300 leading-relaxed">
-                  Al finalizar este tutorial, tendrás un Google Drive correctamente organizado con carpetas estructuradas, 
-                  permisos adecuados para colaboración en equipo, y un sistema de nomenclatura que facilitará encontrar 
-                  y versionar todos los documentos de tus proyectos de robótica.
+                <p className="text-slate-300 leading-relaxed mb-4">
+                  El <strong>TARS Drive</strong> es nuestro espacio de trabajo compartido donde se organizan todos los documentos, 
+                  recursos y información del equipo TARS Robotics para el European Rover Challenge (ERC).
                 </p>
-              </section>
-
-              <section id="contexto">
-                <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                  🧭 Contexto
-                </h2>
-                <p className="text-slate-300 leading-relaxed">
-                  Este tutorial es parte de las <strong>herramientas esenciales</strong> de Tars Academy. 
-                  Google Drive será tu centro de colaboración para documentos, presentaciones, hojas de cálculo 
-                  y archivos compartidos con tu equipo de robótica.
+                <p className="text-slate-300 leading-relaxed mb-6">
+                  Esta guía te ayudará a entender la estructura, navegar correctamente y seguir las buenas prácticas 
+                  para mantener la organización del equipo.
                 </p>
+                
                 <Callout type="info">
-                  Aunque usarás Git para el código, Google Drive es perfecto para documentación, 
-                  planificación de proyectos, y archivos que necesitan edición colaborativa en tiempo real.
+                  💡 <strong>Importante:</strong> El TARS Drive usa un sistema de numeración específico para mantener 
+                  el orden. Siempre respeta esta estructura y consulta antes de hacer cambios importantes.
                 </Callout>
               </section>
 
-              <section id="requisitos">
+              <section id="estructura-general">
                 <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                  ✅ Requisitos previos
+                  📁 Estructura general de carpetas
                 </h2>
-                <ul className="space-y-2 text-slate-300">
-                  <li className="flex items-start gap-2">
-                    <span className="text-green-400 mt-1">✓</span>
-                    <span><strong>Cuenta de Google</strong> (Gmail o Google Workspace)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-green-400 mt-1">✓</span>
-                    <span><strong>Navegador web actualizado</strong> (Chrome, Firefox, Edge)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-green-400 mt-1">✓</span>
-                    <span><strong>15 GB de espacio disponible</strong> en Google Drive</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-yellow-400 mt-1">○</span>
-                    <span><strong>Opcional:</strong> Aplicación Google Drive para escritorio</span>
-                  </li>
-                </ul>
+                <p className="text-slate-300 leading-relaxed mb-6">
+                  Cuando entras en TARS Drive, verás una carpeta para cada departamento del equipo. 
+                  Cada carpeta tiene un código numérico para mantener el orden.
+                </p>
+
+                <div id="departamentos" className="space-y-6">
+                  <h3 className="text-xl font-semibold text-slate-200 mb-4">Carpetas por departamento</h3>
+                  
+                  <div className="grid gap-4">
+                    <div className="bg-slate-800 rounded-lg p-4 border-l-4 border-green-500">
+                      <h4 className="font-semibold text-green-300 mb-2">📁 0.General</h4>
+                      <p className="text-slate-300 text-sm">
+                        Información principal de todo el grupo: reglas de competiciones, planificaciones, 
+                        lista de materiales. Carpeta para información general del equipo completo.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-slate-800 rounded-lg p-4 border-l-4 border-blue-500">
+                      <h4 className="font-semibold text-blue-300 mb-2">📁 1.Software</h4>
+                      <p className="text-slate-300 text-sm">
+                        <strong>Tu carpeta principal.</strong> Aquí está toda la información del equipo de software: 
+                        planes, tareas, documentos, etc. Tu espacio de trabajo principal.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-slate-800 rounded-lg p-4 border-l-4 border-orange-500">
+                      <h4 className="font-semibold text-orange-300 mb-2">📁 2.Mecánica</h4>
+                      <p className="text-slate-300 text-sm">
+                        Especificaciones de diseño y información sobre montaje. 
+                        <strong>⚠️ No elimines ni modifiques nada sin permiso del líder de mecánica.</strong>
+                      </p>
+                    </div>
+                    
+                    <div className="bg-slate-800 rounded-lg p-4 border-l-4 border-red-500">
+                      <h4 className="font-semibold text-red-300 mb-2">📁 3.Electrónica</h4>
+                      <p className="text-slate-300 text-sm">
+                        Esta carpeta por el momento no es utilizable. Si necesitas algo, 
+                        contacta con el líder del equipo de software.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-slate-800 rounded-lg p-4 border-l-4 border-purple-500">
+                      <h4 className="font-semibold text-purple-300 mb-2">📁 4.Finanzas</h4>
+                      <p className="text-slate-300 text-sm">
+                        Presupuestos, listas de pedidos y procedimientos de compra. 
+                        Principalmente para líderes, no necesitarás acceder habitualmente.
+                      </p>
+                    </div>
+                    
+                    <div className="bg-slate-800 rounded-lg p-4 border-l-4 border-pink-500">
+                      <h4 className="font-semibold text-pink-300 mb-2">📁 5.Imagen</h4>
+                      <p className="text-slate-300 text-sm">
+                        Bocetos y diseños del equipo de imagen. No necesitarás acceder a esta carpeta.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <Callout type="tip">
+                    <strong>Sistema de numeración:</strong> Las carpetas usan códigos numéricos ascendentes. 
+                    Dentro de Software (1) tienes 10, 11, 12... y dentro de estas: 101, 102, 111, 112, etc.
+                  </Callout>
+                </div>
               </section>
 
-              <section id="pasos">
-                <h2 className="text-2xl font-semibold text-slate-100 mb-6 flex items-center gap-2">
-                  🛠️ Pasos guiados
+              <section id="software-detalle">
+                <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
+                  💻 Carpeta de Software (detalle)
                 </h2>
+                <p className="text-slate-300 leading-relaxed mb-6">
+                  Dentro de la carpeta <strong>1.Software</strong> encontrarás varias subcarpetas organizadas. 
+                  Aquí te explico cada una en detalle:
+                </p>
 
-                <div className="space-y-8">
-                  <div id="paso-1" className="card">
+                <div className="space-y-6">
+                  <div id="general-software" className="card">
                     <h3 className="text-xl font-semibold text-slate-100 mb-3 flex items-center gap-2">
-                      <span className="bg-space-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">1</span>
-                      Crear estructura de carpetas base
+                      <span className="bg-blue-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">10</span>
+                      10_General
                     </h3>
                     <p className="text-slate-300 mb-4">
-                      Crearemos una estructura organizada que facilite encontrar documentos y mantener el orden en equipo.
+                      Información principal que necesitará todo el equipo de software, subida por el líder.
                     </p>
                     
-                    <div className="bg-slate-800 rounded-lg p-4 mb-4 border-l-4 border-space-500">
-                      <p className="text-sm text-slate-400 mb-3">📁 Estructura recomendada:</p>
-                      <div className="font-mono text-xs text-slate-300 space-y-1">
-                        <div>📁 <strong>TARS-Academia/</strong></div>
-                        <div className="ml-4">├── 📁 <strong>01-Onboarding/</strong></div>
-                        <div className="ml-8">│   ├── 📄 Checklist-Onboarding.gdoc</div>
-                        <div className="ml-8">│   └── 📄 Recursos-Iniciales.gdoc</div>
-                        <div className="ml-4">├── 📁 <strong>02-Proyectos/</strong></div>
-                        <div className="ml-8">│   ├── 📁 Proyecto-Robot-Explorador/</div>
-                        <div className="ml-8">│   └── 📁 Proyecto-Brazo-Robotico/</div>
-                        <div className="ml-4">├── 📁 <strong>03-Documentacion/</strong></div>
-                        <div className="ml-8">│   ├── 📄 Guias-ROS2.gdoc</div>
-                        <div className="ml-8">│   └── 📄 Buenas-Practicas.gdoc</div>
-                        <div className="ml-4">├── 📁 <strong>04-Planificacion/</strong></div>
-                        <div className="ml-8">│   ├── 📊 Cronograma-General.gsheet</div>
-                        <div className="ml-8">│   └── 📊 Seguimiento-Tareas.gsheet</div>
-                        <div className="ml-4">└── 📁 <strong>05-Recursos/</strong></div>
-                        <div className="ml-8">├── 📁 Imagenes/</div>
-                        <div className="ml-8">└── 📁 Archivos-CAD/</div>
+                    <div className="grid gap-3">
+                      <div className="bg-slate-800 rounded-lg p-3">
+                        <h4 className="font-semibold text-slate-200 mb-2">📄 100_Actas</h4>
+                        <p className="text-slate-300 text-sm">Resúmenes de nuestras reuniones principales.</p>
+                      </div>
+                      
+                      <div className="bg-slate-800 rounded-lg p-3">
+                        <h4 className="font-semibold text-slate-200 mb-2">📚 101_Documentos</h4>
+                        <p className="text-slate-300 text-sm">Documentos principales del equipo: manuales, buenas prácticas de programación, etc.</p>
+                      </div>
+                      
+                      <div className="bg-slate-800 rounded-lg p-3">
+                        <h4 className="font-semibold text-slate-200 mb-2">📅 102_Planificacion</h4>
+                        <p className="text-slate-300 text-sm">Cronogramas semanales, mensuales y anuales, así como el plan del proyecto.</p>
+                      </div>
+                      
+                      <div className="bg-slate-800 rounded-lg p-3">
+                        <h4 className="font-semibold text-slate-200 mb-2">🏆 103_Competiciones</h4>
+                        <p className="text-slate-300 text-sm">Carpeta para cada competición con reglas, documentos presentados, validaciones y tablas de pruebas.</p>
+                      </div>
+                      
+                      <div className="bg-slate-800 rounded-lg p-3">
+                        <h4 className="font-semibold text-slate-200 mb-2">🛒 104_Pedidos</h4>
+                        <p className="text-slate-300 text-sm">Listas de componentes a comprar. Si necesitas algo, avisa al líder o crea un Excel siguiendo el ejemplo.</p>
                       </div>
                     </div>
-
-                    <div className="bg-slate-800 rounded-lg p-4 mb-4">
-                      <p className="text-sm text-slate-400 mb-2">Pasos para crear:</p>
-                      <ol className="list-decimal list-inside space-y-1 text-slate-300 text-sm">
-                        <li>Ve a <a href="https://drive.google.com" className="text-space-400 hover:text-space-300">drive.google.com</a></li>
-                        <li>Haz clic en "Nuevo" → "Carpeta"</li>
-                        <li>Crea la carpeta principal "TARS-Academia"</li>
-                        <li>Entra en la carpeta y crea las subcarpetas numeradas</li>
-                        <li>Repite para todas las carpetas de la estructura</li>
-                      </ol>
-                    </div>
-
-                    <Callout type="tip">
-                      Los números (01, 02, 03...) mantienen el orden alfabético y hacen más fácil 
-                      encontrar las carpetas principales.
-                    </Callout>
-
-                    <Callout type="check">
-                      <strong>Cómo verificar:</strong> Tienes la carpeta "TARS-Academia" con las 5 subcarpetas 
-                      principales numeradas y organizadas.
-                    </Callout>
-                    <p className="text-xs text-slate-400 mt-2">⏱️ Tiempo estimado: 5-8 minutos</p>
                   </div>
 
-                  <div id="paso-2" className="card">
+                  <div id="equipos-software" className="card">
                     <h3 className="text-xl font-semibold text-slate-100 mb-3 flex items-center gap-2">
-                      <span className="bg-space-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">2</span>
-                      Configurar permisos de carpetas
+                      <span className="bg-green-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">11</span>
+                      11_Equipos
                     </h3>
                     <p className="text-slate-300 mb-4">
-                      Configuraremos los permisos adecuados para que tu equipo pueda colaborar eficientemente.
+                      Carpetas para los subequipos del departamento de software. Aquí subes documentos de proyectos, 
+                      investigaciones y diseños. <strong>⚠️ AQUÍ NO subas resúmenes de tareas.</strong>
                     </p>
                     
-                    <div className="bg-slate-800 rounded-lg p-4 mb-4">
-                      <p className="text-sm text-slate-400 mb-2">Niveles de permisos recomendados:</p>
-                      <div className="space-y-2 text-slate-300 text-sm">
-                        <div className="flex items-start gap-2">
-                          <span className="text-green-400">👥</span>
-                          <div>
-                            <strong>TARS-Academia (raíz):</strong> Solo tú como propietario
-                          </div>
-                        </div>
-                        <div className="flex items-start gap-2">
-                          <span className="text-blue-400">✏️</span>
-                          <div>
-                            <strong>02-Proyectos:</strong> Editor para compañeros de equipo
-                          </div>
-                        </div>
-                        <div className="flex items-start gap-2">
-                          <span className="text-yellow-400">👁️</span>
-                          <div>
-                            <strong>03-Documentacion:</strong> Comentario para todo el grupo
-                          </div>
-                        </div>
-                        <div className="flex items-start gap-2">
-                          <span className="text-blue-400">✏️</span>
-                          <div>
-                            <strong>04-Planificacion:</strong> Editor para coordinadores
-                          </div>
-                        </div>
+                    <div className="grid gap-2 text-sm">
+                      <div className="bg-slate-800 rounded p-2">
+                        <span className="font-mono text-blue-300">111_Cinemática</span>
+                      </div>
+                      <div className="bg-slate-800 rounded p-2">
+                        <span className="font-mono text-blue-300">112_Navegación y localización</span>
+                      </div>
+                      <div className="bg-slate-800 rounded p-2">
+                        <span className="font-mono text-blue-300">113_Visión artificial</span>
+                      </div>
+                      <div className="bg-slate-800 rounded p-2">
+                        <span className="font-mono text-blue-300">114_Interfaces</span>
+                      </div>
+                      <div className="bg-slate-800 rounded p-2">
+                        <span className="font-mono text-blue-300">115_Dron</span>
+                      </div>
+                      <div className="bg-slate-800 rounded p-2 opacity-60">
+                        <span className="font-mono text-blue-300">...</span>
                       </div>
                     </div>
+                  </div>
 
-                    <div className="bg-slate-800 rounded-lg p-4 mb-4">
-                      <p className="text-sm text-slate-400 mb-2">Cómo configurar permisos:</p>
-                      <ol className="list-decimal list-inside space-y-1 text-slate-300 text-sm">
-                        <li>Haz clic derecho en la carpeta → "Compartir"</li>
-                        <li>Añade emails de compañeros en "Personas"</li>
-                        <li>Selecciona nivel: "Visor", "Comentador" o "Editor"</li>
-                        <li>Marca "Notificar a las personas" si es necesario</li>
-                        <li>Haz clic en "Enviar"</li>
-                      </ol>
+                  <div id="recursos-software" className="card">
+                    <h3 className="text-xl font-semibold text-slate-100 mb-3 flex items-center gap-2">
+                      <span className="bg-purple-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">12</span>
+                      12_Recursos
+                    </h3>
+                    <p className="text-slate-300 mb-4">
+                      Recursos útiles para comprender y aprender sobre el proyecto.
+                    </p>
+                    
+                    <div className="grid gap-2 text-sm">
+                      <div className="bg-slate-800 rounded p-2">
+                        <span className="font-mono text-purple-300">120_Datasheets</span> - Hojas de datos técnicas
+                      </div>
+                      <div className="bg-slate-800 rounded p-2">
+                        <span className="font-mono text-purple-300">121_Artículos</span> - Papers y artículos de investigación
+                      </div>
+                      <div className="bg-slate-800 rounded p-2">
+                        <span className="font-mono text-purple-300">122_Libros</span> - Libros y manuales técnicos
+                      </div>
+                      <div className="bg-slate-800 rounded p-2 opacity-60">
+                        <span className="font-mono text-purple-300">...</span>
+                      </div>
                     </div>
+                  </div>
 
+                  <div id="academia-software" className="card">
+                    <h3 className="text-xl font-semibold text-slate-100 mb-3 flex items-center gap-2">
+                      <span className="bg-orange-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">13</span>
+                      13_Academia
+                    </h3>
+                    <p className="text-slate-300 mb-4">
+                      Manuales principales de los tutoriales y enlace a la academia. Aquí encontrarás recursos 
+                      educativos actualizados.
+                    </p>
+                  </div>
+
+                  <div id="tareas-software" className="card">
+                    <h3 className="text-xl font-semibold text-slate-100 mb-3 flex items-center gap-2">
+                      <span className="bg-red-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">14</span>
+                      14_Tareas
+                    </h3>
+                    <p className="text-slate-300 mb-4">
+                      <strong>Aquí SÍ subes los resúmenes de las tareas.</strong> Hay carpetas para cada semana, 
+                      deberás subir el resumen de tus tareas en la semana correspondiente.
+                    </p>
+                    
                     <Callout type="warning">
-                      No compartas la carpeta raíz con permisos de "Editor" - mejor comparte 
-                      subcarpetas específicas según el rol de cada persona.
+                      Importante: Los resúmenes de tareas van en 14_Tareas, NO en 11_Equipos. 
+                      Siempre sube en la carpeta de la semana correcta.
                     </Callout>
-                    <p className="text-xs text-slate-400 mt-2">⏱️ Tiempo estimado: 5-7 minutos</p>
-                  </div>
-
-                  <div id="paso-3" className="card">
-                    <h3 className="text-xl font-semibold text-slate-100 mb-3 flex items-center gap-2">
-                      <span className="bg-space-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">3</span>
-                      Compartir con el equipo de trabajo
-                    </h3>
-                    <p className="text-slate-300 mb-4">
-                      Crearemos enlaces de acceso directo y configuraremos notificaciones para el equipo.
-                    </p>
-                    
-                    <div className="bg-slate-800 rounded-lg p-4 mb-4">
-                      <p className="text-sm text-slate-400 mb-2">Estrategia de compartición:</p>
-                      <ol className="list-decimal list-inside space-y-2 text-slate-300 text-sm">
-                        <li>
-                          <strong>Enlaces directos:</strong> Crea enlaces para cada carpeta principal
-                          <ul className="list-disc list-inside ml-4 mt-1 space-y-1 text-slate-400">
-                            <li>Haz clic derecho → "Obtener enlace"</li>
-                            <li>Cambia a "Cualquiera con el enlace"</li>
-                            <li>Ajusta permisos según necesidad</li>
-                          </ul>
-                        </li>
-                        <li>
-                          <strong>Invitaciones directas:</strong> Para carpetas sensibles
-                          <ul className="list-disc list-inside ml-4 mt-1 space-y-1 text-slate-400">
-                            <li>Solo por email específico</li>
-                            <li>Con permisos limitados</li>
-                          </ul>
-                        </li>
-                        <li>
-                          <strong>Documento de enlaces:</strong> Crea un documento con todos los links importantes
-                        </li>
-                      </ol>
-                    </div>
-
-                    <Callout type="tip">
-                      Crea un documento "🔗 Enlaces-Rapidos.gdoc" en la carpeta raíz con todos los 
-                      enlaces importantes para que el equipo los tenga siempre a mano.
-                    </Callout>
-                    <p className="text-xs text-slate-400 mt-2">⏱️ Tiempo estimado: 3-5 minutos</p>
-                  </div>
-
-                  <div id="paso-4" className="card">
-                    <h3 className="text-xl font-semibold text-slate-100 mb-3 flex items-center gap-2">
-                      <span className="bg-space-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">4</span>
-                      Establecer nomenclatura de archivos
-                    </h3>
-                    <p className="text-slate-300 mb-4">
-                      Definiremos un sistema de nombres consistente para que todos encuentren fácilmente los archivos.
-                    </p>
-                    
-                    <div className="bg-slate-800 rounded-lg p-4 mb-4 border-l-4 border-energy-500">
-                      <p className="text-sm text-slate-400 mb-3">📝 Convenciones de nomenclatura:</p>
-                      <div className="space-y-3 text-slate-300 text-sm">
-                        <div>
-                          <strong>Documentos de proyecto:</strong>
-                          <code className="block bg-slate-900 p-2 mt-1 rounded text-xs">
-                            [Proyecto]-[Tipo]-[Descripcion]-[Version]<br/>
-                            Ej: RobotExplorador-Diseno-SistemaSensores-v2.1
-                          </code>
-                        </div>
-                        <div>
-                          <strong>Reuniones y actas:</strong>
-                          <code className="block bg-slate-900 p-2 mt-1 rounded text-xs">
-                            [YYYY-MM-DD]-[Tipo]-[Tema]<br/>
-                            Ej: 2025-09-15-Reunion-PlanificacionSprint
-                          </code>
-                        </div>
-                        <div>
-                          <strong>Documentación técnica:</strong>
-                          <code className="block bg-slate-900 p-2 mt-1 rounded text-xs">
-                            [Categoria]-[Subtema]-[Version]<br/>
-                            Ej: ROS2-ConfiguracionNodos-v1.3
-                          </code>
-                        </div>
-                      </div>
-                    </div>
-
-                    <Callout type="info">
-                      Evita espacios, acentos y caracteres especiales en nombres de archivos. 
-                      Usa guiones (-) para separar palabras y puntos (.) solo antes de la extensión.
-                    </Callout>
-                    <p className="text-xs text-slate-400 mt-2">⏱️ Tiempo estimado: 2-3 minutos</p>
-                  </div>
-
-                  <div id="paso-5" className="card">
-                    <h3 className="text-xl font-semibold text-slate-100 mb-3 flex items-center gap-2">
-                      <span className="bg-space-500 text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">5</span>
-                      Configurar control de versiones
-                    </h3>
-                    <p className="text-slate-300 mb-4">
-                      Aprovecharemos las herramientas de Google Drive para mantener un historial de cambios y versiones.
-                    </p>
-                    
-                    <div className="bg-slate-800 rounded-lg p-4 mb-4">
-                      <p className="text-sm text-slate-400 mb-2">Estrategias de versionado:</p>
-                      <div className="space-y-3 text-slate-300 text-sm">
-                        <div>
-                          <strong>1. Historial automático de Google:</strong>
-                          <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
-                            <li>Google Docs/Sheets guarda automáticamente cada cambio</li>
-                            <li>Accede con: Archivo → Historial de versiones</li>
-                            <li>Puedes restaurar versiones anteriores</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <strong>2. Versiones nombradas:</strong>
-                          <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
-                            <li>En hitos importantes: Archivo → Historial → "Asignar nombre a la versión actual"</li>
-                            <li>Usa nombres descriptivos: "v1.0-Revision-Final", "v2.0-Cambios-Equipo"</li>
-                          </ul>
-                        </div>
-                        <div>
-                          <strong>3. Archivos importantes:</strong>
-                          <ul className="list-disc list-inside ml-4 mt-1 space-y-1">
-                            <li>Para documentos críticos, haz copias manuales ocasionalmente</li>
-                            <li>Nombra: "Documento-BACKUP-[fecha]"</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-
-                    <Callout type="tip">
-                      Configura notificaciones de cambios: Haz clic derecho en archivos importantes 
-                      → "Obtener notificaciones" para saber cuándo alguien los modifica.
-                    </Callout>
-                    <p className="text-xs text-slate-400 mt-2">⏱️ Tiempo estimado: 3-5 minutos</p>
                   </div>
                 </div>
               </section>
 
-              <section id="validacion">
+              <section id="buenas-practicas">
                 <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                  🧪 Validación final
+                  📋 Buenas prácticas de uso
                 </h2>
-                <div className="card">
-                  <p className="text-slate-300 mb-4">
-                    Verifica que tu configuración de Google Drive está lista para el trabajo en equipo:
-                  </p>
-                  <div className="space-y-3">
-                    {[
-                      'La carpeta "TARS-Academia" está creada con las 5 subcarpetas numeradas',
-                      'Al menos una carpeta está compartida con un compañero de equipo',
-                      'Puedes acceder al historial de versiones de un documento de Google',
-                      'Has creado un documento con enlaces rápidos a las carpetas principales',
-                      'Los nombres de archivos siguen la convención establecida'
-                    ].map((item, index) => (
-                      <label key={index} className="flex items-start gap-3 cursor-pointer">
-                        <input type="checkbox" className="mt-1 rounded border-slate-600 bg-slate-700 text-space-500 focus:ring-space-500" />
-                        <span className="text-slate-300">{item}</span>
-                      </label>
-                    ))}
+                <div className="space-y-4">
+                  <div className="card border-l-4 border-l-green-500">
+                    <h4 className="font-semibold text-green-300 mb-2">✅ Qué SÍ hacer</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• Respetar la estructura de numeración existente</li>
+                      <li>• Subir archivos en la carpeta correcta según su tipo</li>
+                      <li>• Usar nombres descriptivos para los archivos</li>
+                      <li>• Consultar al líder antes de crear nuevas carpetas principales</li>
+                      <li>• Mantener actualizados los resúmenes de tareas semanales</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="card border-l-4 border-l-red-500">
+                    <h4 className="font-semibold text-red-300 mb-2">❌ Qué NO hacer</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• No modificar archivos de otros departamentos sin permiso</li>
+                      <li>• No subir resúmenes de tareas en 11_Equipos</li>
+                      <li>• No crear carpetas fuera del sistema de numeración</li>
+                      <li>• No eliminar archivos que no hayas creado tú</li>
+                      <li>• No usar la carpeta 3.Electrónica (está deshabilitada)</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              <section id="permisos">
+                <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
+                  🔒 Permisos y responsabilidades
+                </h2>
+                <div className="grid gap-4">
+                  <div className="bg-slate-800 rounded-lg p-4">
+                    <h4 className="font-semibold text-slate-200 mb-2">👤 Miembros del equipo de software</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• <strong>Lectura:</strong> Todas las carpetas de software</li>
+                      <li>• <strong>Escritura:</strong> Sus subcarpetas en 11_Equipos y 14_Tareas</li>
+                      <li>• <strong>Consulta:</strong> Carpetas de otros departamentos (sin modificar)</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="bg-slate-800 rounded-lg p-4">
+                    <h4 className="font-semibold text-slate-200 mb-2">👑 Líder de software</h4>
+                    <ul className="space-y-1 text-slate-300 text-sm">
+                      <li>• <strong>Control total:</strong> Carpeta 1.Software completa</li>
+                      <li>• <strong>Gestión de permisos:</strong> Puede añadir/quitar accesos</li>
+                      <li>• <strong>Coordinación:</strong> Con otros líderes de departamento</li>
+                    </ul>
+                  </div>
+                </div>
+              </section>
+
+              <section id="nomenclatura">
+                <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
+                  📝 Nomenclatura de archivos
+                </h2>
+                <p className="text-slate-300 leading-relaxed mb-4">
+                  Para mantener el orden, sigue estas convenciones al nombrar archivos:
+                </p>
+                
+                <div className="space-y-4">
+                  <div className="bg-slate-800 rounded-lg p-4">
+                    <h4 className="font-semibold text-slate-200 mb-2">📄 Documentos de trabajo</h4>
+                    <code className="block bg-slate-900 p-2 rounded text-xs text-green-300">
+                      [Fecha]-[Tipo]-[Descripción]<br/>
+                      Ej: 2025-09-30-Reporte-AvanceVisión
+                    </code>
+                  </div>
+                  
+                  <div className="bg-slate-800 rounded-lg p-4">
+                    <h4 className="font-semibold text-slate-200 mb-2">📊 Resúmenes de tareas</h4>
+                    <code className="block bg-slate-900 p-2 rounded text-xs text-blue-300">
+                      Tarea_[Semana]_[Acrónimo]<br/>
+                      Ej: Tarea_S2_CIA
+                    </code>
+                  </div>
+                  
+                  <div className="bg-slate-800 rounded-lg p-4">
+                    <h4 className="font-semibold text-slate-200 mb-2">🔬 Investigación y diseño</h4>
+                    <code className="block bg-slate-900 p-2 rounded text-xs text-purple-300">
+                      [Proyecto]-[Área]-[Descripción]<br/>
+                      Ej: ERC2025-Navegación-AlgoritmoSLAM
+                    </code>
                   </div>
                 </div>
               </section>
 
               <section id="problemas">
                 <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                  🚑 Problemas frecuentes y solución
+                  🚑 Problemas frecuentes
                 </h2>
                 <div className="space-y-4">
                   {[
                     {
-                      problema: "No puedo compartir carpetas - aparece 'Sin permisos'",
-                      causa: "Cuenta de Google Workspace con restricciones de administrador",
-                      solucion: "Contacta al administrador de tu organización o usa una cuenta personal de Gmail para proyectos de la academia"
+                      problema: "No puedo acceder a una carpeta de otro departamento",
+                      solucion: "Es normal. Contacta al líder del departamento correspondiente o al líder de software para solicitar acceso específico."
                     },
                     {
-                      problema: "Los compañeros no reciben las invitaciones por email",
-                      causa: "Emails en spam o direcciones incorrectas", 
-                      solucion: "Verifica las direcciones de email y pide que revisen la carpeta de spam. Usa enlaces directos como alternativa"
+                      problema: "No sé dónde subir un documento que no encaja en las categorías",
+                      solucion: "Consulta con el líder de software. Probablemente vaya en 10_General o necesites crear una subcarpeta específica."
                     },
                     {
-                      problema: "Se crearon muchas versiones duplicadas de un documento",
-                      causa: "Varias personas editando simultáneamente sin coordinación",
-                      solucion: "Usa comentarios en lugar de editar directamente cuando sea posible. Coordina quién edita y cuándo"
+                      problema: "Subí mi resumen de tareas en el lugar equivocado",
+                      solucion: "Muévelo a 14_Tareas en la carpeta de la semana correcta. Si no puedes moverlo, contacta al líder."
                     },
                     {
-                      problema: "No encuentro archivos en la estructura de carpetas",
-                      causa: "Nomenclatura inconsistente o archivos mal ubicados",
-                      solucion: "Usa la función de búsqueda de Drive. Reorganiza archivos siguiendo la nomenclatura establecida"
-                    },
-                    {
-                      problema: "Se alcanzó el límite de 15GB de Google Drive",
-                      causa: "Muchos archivos grandes o duplicados",
-                      solucion: "Limpia archivos duplicados, usa Google Photos para imágenes, considera Google Workspace o almacena archivos CAD en GitHub LFS"
+                      problema: "La carpeta que necesito no existe",
+                      solucion: "Antes de crear nuevas carpetas, consulta con el líder. Puede que debas usar una existente o que sea necesario planificar la nueva estructura."
                     }
                   ].map((item, index) => (
-                    <div key={index} className="card border-l-4 border-l-red-500">
-                      <h4 className="font-semibold text-slate-200 mb-2">P-{String(index + 1).padStart(2, '0')}: {item.problema}</h4>
-                      <p className="text-slate-400 text-sm mb-2"><strong>Causa probable:</strong> {item.causa}</p>
+                    <div key={index} className="card border-l-4 border-l-yellow-500">
+                      <h4 className="font-semibold text-slate-200 mb-2">❓ {item.problema}</h4>
                       <p className="text-slate-300 text-sm"><strong>Solución:</strong> {item.solucion}</p>
                     </div>
                   ))}
                 </div>
               </section>
 
-              <section id="recursos">
-                <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                  🔗 Recursos y referencias
-                </h2>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="card">
-                    <h4 className="font-semibold text-slate-200 mb-2">Documentación oficial</h4>
-                    <ul className="space-y-1 text-sm">
-                      <li><a href="https://support.google.com/drive" className="text-space-400 hover:text-space-300">Centro de ayuda Google Drive</a></li>
-                      <li><a href="https://support.google.com/docs/answer/190843" className="text-space-400 hover:text-space-300">Compartir archivos en Drive</a></li>
-                    </ul>
-                  </div>
-                  <div className="card">
-                    <h4 className="font-semibold text-slate-200 mb-2">Herramientas adicionales</h4>
-                    <ul className="space-y-1 text-sm">
-                      <li><a href="/tutoriales/google-workspace-avanzado" className="text-space-400 hover:text-space-300">Google Workspace avanzado</a></li>
-                      <li><a href="/tutoriales/backup-archivos" className="text-space-400 hover:text-space-300">Estrategias de backup</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </section>
-
-              <section id="siguientes">
-                <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                  ➡️ Siguientes pasos
-                </h2>
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div className="card border-l-4 border-l-space-500">
-                    <h4 className="font-semibold text-slate-200 mb-2">Domina las herramientas</h4>
-                    <p className="text-slate-300 text-sm mb-3">
-                      Aprende a usar Google Docs, Sheets y Slides para documentación técnica.
-                    </p>
-                    <a href="/tutoriales/google-docs-tecnico" className="btn-primary inline-block">
-                      Google Docs técnico →
-                    </a>
-                  </div>
-                  <div className="card">
-                    <h4 className="font-semibold text-slate-200 mb-2">Complementa con Git</h4>
-                    <ul className="space-y-1 text-sm text-slate-300">
-                      <li>• <a href="/tutoriales/git-github-desktop" className="text-space-400 hover:text-space-300">Git y GitHub Desktop</a></li>
-                      <li>• <a href="/tutoriales/integracion-drive-git" className="text-space-400 hover:text-space-300">Integrar Drive con Git</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </section>
-
               <section className="border-t border-slate-700 pt-6">
                 <h2 className="text-xl font-semibold text-slate-100 mb-3 flex items-center gap-2">
-                  🤝 ¿Mejorar este tutorial?
+                  🤝 ¿Dudas sobre el TARS Drive?
                 </h2>
                 <p className="text-slate-300 text-sm">
-                  Si tienes sugerencias para mejorar la organización o encontraste algún problema, 
-                  <a href="https://github.com/tars-academy/tutoriales/issues" className="text-space-400 hover:text-space-300 ml-1">compártelo en GitHub</a> 
-                  o déjanos un comentario. ¡Tu experiencia ayuda a otros estudiantes! 💙
+                  Si tienes dudas sobre dónde subir algo o cómo usar correctamente la estructura, 
+                  contacta directamente con el líder del equipo de software. ¡Estamos aquí para ayudarte 
+                  a mantener todo organizado! 🤖
                 </p>
               </section>
             </div>
@@ -489,25 +437,22 @@ export default function GoogleDriveAcademia() {
             {/* Navegación */}
             <TutorialNavigation 
               previous={{
-                title: "VS Code configuración básica",
-                href: "/tutoriales/vscode-setup"
+                title: "Terminal básica",
+                href: "/tutoriales/terminal-basica"
               }}
               next={{
-                title: "Documentación técnica con Google Docs",
-                href: "/tutoriales/google-docs-tecnico"
+                title: "Git & GitHub",
+                href: "/tutoriales/git-github"
               }}
             />
-          </div>
+          </main>
 
           {/* Sidebar con TOC */}
-          <div className="hidden lg:block w-80">
-            <TableOfContents items={tocItems} />
-          </div>
-        </div>
-
-        {/* TOC móvil */}
-        <div className="lg:hidden">
-          <TableOfContents items={tocItems} />
+          <aside className="lg:col-span-1">
+            <div className="sticky top-8">
+              <TableOfContents items={tocItems} />
+            </div>
+          </aside>
         </div>
       </div>
     </div>

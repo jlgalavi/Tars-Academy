@@ -1,3 +1,6 @@
+/* eslint-disable react/no-unescaped-entities */
+'use client';
+
 import Breadcrumb from "@/components/tutorial/Breadcrumb";
 import TutorialChip from "@/components/tutorial/TutorialChip";
 import Callout from "@/components/tutorial/Callout";
@@ -6,16 +9,16 @@ import TutorialNavigation from "@/components/tutorial/TutorialNavigation";
 
 export default function InstalarROSPrimerNodo() {
   const tocItems = [
-    { id: "introduccion", title: "¿Qué es ROS 2?", level: 2 },
-    { id: "prerequisitos", title: "Prerequisitos", level: 2 },
-    { id: "instalar-ros", title: "Instalar ROS 2 Humble", level: 2 },
-    { id: "configurar-entorno", title: "Configurar entorno", level: 2 },
-    { id: "primer-workspace", title: "Crear primer workspace", level: 2 },
-    { id: "primer-nodo", title: "Primer nodo Python", level: 2 },
-    { id: "ejecutar-nodo", title: "Ejecutar y probar nodo", level: 2 },
-    { id: "troubleshooting", title: "Troubleshooting", level: 2 },
-    { id: "validacion", title: "Validación final", level: 2 },
-    { id: "recursos", title: "Recursos", level: 2 }
+    { id: "introduccion", title: "🎯 ¿Qué es ROS 2?", level: 2 },
+    { id: "prerequisitos", title: "📋 Prerrequisitos", level: 2 },
+    { id: "instalar-ros", title: "📥 Instalar ROS 2 Jazzy", level: 2 },
+    { id: "configurar-entorno", title: "⚙️ Configurar entorno", level: 2 },
+    { id: "primer-workspace", title: "📁 Crear primer workspace", level: 2 },
+    { id: "primer-nodo", title: "🐍 Primer nodo Python", level: 2 },
+    { id: "ejecutar-nodo", title: "🚀 Ejecutar y probar nodo", level: 2 },
+    { id: "troubleshooting", title: "🔧 Troubleshooting", level: 2 },
+    { id: "validacion", title: "✅ Validación final", level: 2 },
+    { id: "recursos", title: "🔗 Recursos", level: 2 }
   ];
 
   return (
@@ -39,20 +42,26 @@ export default function InstalarROSPrimerNodo() {
 
         <header className="mb-8">
           <h1 className="text-4xl font-bold text-slate-100 mb-4">
-            🤖 Instalar ROS 2 + Primer Nodo
+                        🤖 Instalar ROS 2 Jazzy + Primer Nodo
           </h1>
           <p className="text-lg text-slate-300 leading-relaxed">
-            Aprende a instalar ROS 2 Humble en Ubuntu, configurar tu entorno de desarrollo 
+            Aprende a instalar ROS 2 Jazzy en Ubuntu 24.04, configurar tu entorno de desarrollo 
             y crear tu primer nodo en Python. Este tutorial te llevará desde cero hasta 
             tener un nodo funcionando que publique mensajes.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
-            <button className="btn-primary">
+            <button 
+              className="btn-primary"
+              onClick={() => document.getElementById('instalar-ros')?.scrollIntoView({ behavior: 'smooth' })}
+            >
               🚀 Empezar ahora
             </button>
-            <button className="btn-secondary">
-              📋 Ver requisitos
+            <button 
+              className="btn-secondary"
+              onClick={() => document.getElementById('prerequisitos')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              📋 Ver prerrequisitos
             </button>
           </div>
         </header>
@@ -70,7 +79,7 @@ export default function InstalarROSPrimerNodo() {
                 </p>
                 
                 <Callout type="info">
-                  Este tutorial está diseñado para Ubuntu 22.04 LTS con ROS 2 Humble Hawksbill, 
+                  Este tutorial está diseñado para Ubuntu 24.04 LTS con ROS 2 Jazzy Jalisco, 
                   la distribución LTS (Long Term Support) recomendada para proyectos académicos.
                 </Callout>
 
@@ -88,7 +97,7 @@ export default function InstalarROSPrimerNodo() {
 
             <section id="prerequisitos">
               <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                📋 Prerequisitos
+                📋 Prerrequisitos
               </h2>
               <div className="space-y-4">
                 <div className="bg-slate-800 p-4 rounded-lg">
@@ -96,7 +105,7 @@ export default function InstalarROSPrimerNodo() {
                   <ul className="space-y-2 text-slate-300">
                     <li className="flex items-start gap-2">
                       <span className="text-green-400 mt-1">✓</span>
-                      <span><strong>Ubuntu 22.04 LTS</strong> instalado (VM o nativo)</span>
+                      <span><strong>Ubuntu 24.04 LTS</strong> instalado (VM o nativo)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-green-400 mt-1">✓</span>
@@ -121,7 +130,7 @@ export default function InstalarROSPrimerNodo() {
 
             <section id="instalar-ros">
               <h2 className="text-2xl font-semibold text-slate-100 mb-4 flex items-center gap-2">
-                📦 Instalar ROS 2 Humble
+                📦 Instalar ROS 2 Jazzy
               </h2>
               <div className="space-y-6">
                 <div className="space-y-4">
@@ -131,8 +140,16 @@ export default function InstalarROSPrimerNodo() {
                     <div className="bg-slate-900 p-3 rounded font-mono text-sm text-green-400">
                       <div># Actualizar sistema</div>
                       <div>sudo apt update && sudo apt upgrade -y</div>
+                      <div className="mt-2"># Configurar locale (requerido para ROS 2 Jazzy)</div>
+                      <div>sudo apt install locales</div>
+                      <div>sudo locale-gen en_US en_US.UTF-8</div>
+                      <div>sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8</div>
+                      <div>export LANG=en_US.UTF-8</div>
+                      <div className="mt-2"># Habilitar repositorio Universe</div>
+                      <div>sudo apt install software-properties-common</div>
+                      <div>sudo add-apt-repository universe</div>
                       <div className="mt-2"># Instalar dependencias</div>
-                      <div>sudo apt install curl gnupg lsb-release software-properties-common -y</div>
+                      <div>sudo apt install curl gnupg lsb-release -y</div>
                     </div>
                   </div>
                 </div>
@@ -150,13 +167,13 @@ export default function InstalarROSPrimerNodo() {
                 </div>
 
                 <div className="space-y-4">
-                  <h3 className="text-xl font-semibold text-slate-200">Paso 3: Instalar ROS 2 Humble</h3>
+                  <h3 className="text-xl font-semibold text-slate-200">Paso 3: Instalar ROS 2 Jazzy</h3>
                   <div className="bg-slate-800 p-4 rounded-lg">
                     <div className="bg-slate-900 p-3 rounded font-mono text-sm text-green-400">
                       <div># Actualizar lista de paquetes</div>
                       <div>sudo apt update</div>
-                      <div className="mt-2"># Instalar ROS 2 Humble Desktop (completo)</div>
-                      <div>sudo apt install ros-humble-desktop python3-argcomplete -y</div>
+                      <div className="mt-2"># Instalar ROS 2 Jazzy Desktop (completo)</div>
+                      <div>sudo apt install ros-jazzy-desktop python3-argcomplete -y</div>
                     </div>
                     <Callout type="info">
                       <strong>Nota:</strong> La descarga puede tomar 10-20 minutos dependiendo de tu conexión.
@@ -177,7 +194,7 @@ export default function InstalarROSPrimerNodo() {
                     <p className="text-slate-300 mb-3">Añadir ROS 2 al bashrc para que se cargue automáticamente:</p>
                     <div className="bg-slate-900 p-3 rounded font-mono text-sm text-green-400">
                       <div># Añadir source al bashrc</div>
-                      <div>echo "source /opt/ros/humble/setup.bash" &gt;&gt; ~/.bashrc</div>
+                      <div>echo "source /opt/ros/jazzy/setup.bash" &gt;&gt; ~/.bashrc</div>
                       <div className="mt-2"># Recargar bashrc</div>
                       <div>source ~/.bashrc</div>
                     </div>
@@ -379,7 +396,7 @@ export default function InstalarROSPrimerNodo() {
                     {
                       problema: "comando 'ros2' no encontrado",
                       causa: "ROS 2 no está en el PATH",
-                      solucion: "Ejecuta: source /opt/ros/humble/setup.bash y verifica que esté en ~/.bashrc"
+                      solucion: "Ejecuta: source /opt/ros/jazzy/setup.bash y verifica que esté en ~/.bashrc"
                     },
                     {
                       problema: "Error al compilar con colcon",
@@ -394,7 +411,7 @@ export default function InstalarROSPrimerNodo() {
                     {
                       problema: "ImportError: No module named 'rclpy'",
                       causa: "ROS 2 no está correctamente instalado",
-                      solucion: "Reinstala: sudo apt install ros-humble-desktop python3-argcomplete"
+                      solucion: "Reinstala: sudo apt install ros-jazzy-desktop python3-argcomplete"
                     }
                   ].map((item, index) => (
                     <div key={index} className="card border-l-4 border-l-red-500">
@@ -417,7 +434,7 @@ export default function InstalarROSPrimerNodo() {
                 </p>
                 <div className="grid md:grid-cols-2 gap-4">
                   {[
-                    'ROS 2 Humble instalado y en PATH',
+                    'ROS 2 Jazzy instalado y en PATH',
                     'Workspace ~/ros2_ws creado y compilado',
                     'Nodo ejecutándose sin errores',
                     'Topic /topic_saludo publicando mensajes',
@@ -447,8 +464,8 @@ export default function InstalarROSPrimerNodo() {
                 <div className="card">
                   <h4 className="font-semibold text-slate-200 mb-2">Documentación oficial</h4>
                   <ul className="space-y-1 text-slate-300 text-sm">
-                    <li>• <a href="https://docs.ros.org/en/humble/" className="text-blue-400 hover:underline">ROS 2 Humble Docs</a></li>
-                    <li>• <a href="https://docs.ros.org/en/humble/Tutorials.html" className="text-blue-400 hover:underline">Tutoriales oficiales</a></li>
+                    <li>• <a href="https://docs.ros.org/en/jazzy/" className="text-blue-400 hover:underline">ROS 2 Jazzy Docs</a></li>
+                    <li>• <a href="https://docs.ros.org/en/jazzy/Tutorials.html" className="text-blue-400 hover:underline">Tutoriales oficiales</a></li>
                     <li>• <a href="https://github.com/ros2/examples" className="text-blue-400 hover:underline">Ejemplos de código</a></li>
                   </ul>
                 </div>
@@ -472,7 +489,9 @@ export default function InstalarROSPrimerNodo() {
           </main>
 
           <aside className="lg:col-span-1">
-            <TableOfContents items={tocItems} />
+            <div className="sticky top-8">
+              <TableOfContents items={tocItems} />
+            </div>
           </aside>
         </div>
       </div>

@@ -1,34 +1,194 @@
-import { Hero } from "@/components/hero";
+import Link from 'next/link';
+import Image from 'next/image';
 import { Card } from "@/components/cards";
-import { quickStarts, basics } from "./_data/home";
+import { basics } from "./_data/home";
 
 export default function Home() {
   return (
-    <main className="container mx-auto max-w-5xl p-6">
-      <Hero />
+    <main className="min-h-screen bg-slate-950">
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 min-h-screen flex flex-col justify-center">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)`,
+            backgroundSize: '20px 20px'
+          }}></div>
+        </div>
+        
+        <div className="relative z-10 container mx-auto max-w-6xl px-6 py-16">
+          {/* Título principal */}
+          <div className="text-center mb-16">
+            <h1 className="text-6xl md:text-7xl font-bold text-white mb-6">
+              🌍 Academia TARS
+            </h1>
+            <p className="text-2xl md:text-3xl text-slate-300 font-medium">
+              Aprende lo esencial para crear nuestro rover
+            </p>
+          </div>
 
-      <section id="quickstart" className="mb-10">
-        <h2 className="mb-3 text-xl font-semibold">Rutas rápidas (onboarding)</h2>
-        <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
-          {quickStarts.map((q) => (
-            <Card key={q.id} title={q.title} href={q.href} meta={`${q.minutes} min`} disabled={q.disabled} />
-          ))}
+          {/* Tarjetas principales con progresión */}
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12 mb-16">
+            {/* Tarjeta GitHub */}
+            <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 w-full max-w-sm text-center hover:bg-slate-800/70 transition-all duration-300 hover:scale-105">
+              <div className="text-6xl mb-4">🐙</div>
+              <h3 className="text-2xl font-bold text-white mb-4">GitHub</h3>
+              <p className="text-slate-300 mb-6">Control de versiones y colaboración en equipo</p>
+              <Link href="/tutoriales/github-primera-pr" className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+                Empezar
+              </Link>
+            </div>
+
+            {/* Flecha 1 */}
+            <div className="text-4xl text-slate-400 rotate-90 lg:rotate-0">→</div>
+
+            {/* Tarjeta Ubuntu */}
+            <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 w-full max-w-sm text-center hover:bg-slate-800/70 transition-all duration-300 hover:scale-105">
+              <div className="text-6xl mb-4">🟠</div>
+              <h3 className="text-2xl font-bold text-white mb-4">Ubuntu</h3>
+              <p className="text-slate-300 mb-6">Instalación y entorno de trabajo en Linux</p>
+              <Link href="/tutoriales/instalar-ubuntu-vm" className="inline-block bg-orange-600 hover:bg-orange-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+                Empezar
+              </Link>
+            </div>
+
+            {/* Flecha 2 */}
+            <div className="text-4xl text-slate-400 rotate-90 lg:rotate-0">→</div>
+
+            {/* Tarjeta ROS2 */}
+            <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700 rounded-2xl p-8 w-full max-w-sm text-center hover:bg-slate-800/70 transition-all duration-300 hover:scale-105">
+              <div className="text-6xl mb-4">⚙️</div>
+              <h3 className="text-2xl font-bold text-white mb-4">ROS2</h3>
+              <p className="text-slate-300 mb-6">Framework base para el software de robótica</p>
+              <Link href="/tutoriales/instalar-ros-primer-nodo" className="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+                Empezar
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      <section id="basics" className="mb-10">
-        <h2 className="mb-3 text-xl font-semibold">Lo básico</h2>
-        <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3">
-          {basics.map((b) => (
-            <Card key={b.id} title={b.title} href={b.href} disabled={b.disabled}>
-              {b.desc}
-            </Card>
-          ))}
+      {/* Sección imagen + texto de presentación */}
+      <section className="bg-slate-900 py-20">
+        <div className="container mx-auto max-w-6xl px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Columna izquierda - Imagen */}
+            <div className="text-center">
+              <div className="bg-slate-800 rounded-2xl p-8 inline-block">
+                <div className="text-8xl">🤖</div>
+                <p className="text-slate-400 mt-4 text-sm">Rover TARS ERC 2025</p>
+              </div>
+            </div>
+            
+            {/* Columna derecha - Texto */}
+            <div className="text-lg text-slate-300 leading-relaxed">
+              <p className="mb-6">
+                🤖 <strong className="text-white">Academia TARS</strong> es tu guía interna de software.
+              </p>
+              <p className="mb-6">
+                Aquí encontrarás tutoriales básicos y prácticos para que cualquier miembro del equipo pueda empezar a trabajar rápidamente en el proyecto ERC.
+              </p>
+              <p className="text-slate-400">
+                Desde control de versiones hasta configuración de entornos, todo lo necesario para contribuir al desarrollo del rover.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
-      <footer className="mt-10 text-sm text-neutral-500">
-        Última actualización: {new Date().toLocaleDateString()}
+      {/* Sección de tutoriales básicos */}
+      <section className="bg-slate-950 py-20">
+        <div className="container mx-auto max-w-6xl px-6">
+          <h2 className="text-4xl font-bold text-white text-center mb-4">
+            🧩 Amplía tu aprendizaje
+          </h2>
+          <p className="text-slate-400 text-center mb-12 max-w-2xl mx-auto">
+            Tutoriales adicionales para profundizar en herramientas específicas y mejores prácticas
+          </p>
+          
+          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+            {basics.map((tutorial) => (
+              <Card 
+                key={tutorial.id} 
+                title={tutorial.title} 
+                href={tutorial.href} 
+                disabled={tutorial.disabled}
+              >
+                {tutorial.desc}
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sección del desarrollador */}
+      <section className="bg-slate-800 py-16">
+        <div className="container mx-auto max-w-4xl px-6 text-center">
+          {/* Foto de perfil */}
+          <div className="flex justify-center mb-6">
+            <div className="relative">
+              <div className="w-24 h-24 rounded-full overflow-hidden border-3 border-space-500/40 shadow-lg">
+                <Image
+                  src="/jose-luis-profile.png"
+                  alt="José Luis Galán Avilés"
+                  width={96}
+                  height={96}
+                  className="w-full h-full object-cover"
+                  priority
+                />
+              </div>
+              {/* Sutil glow effect */}
+              <div className="absolute inset-0 rounded-full bg-space-500/10 blur-lg -z-10"></div>
+            </div>
+          </div>
+          
+          <p className="text-lg text-slate-300 mb-2">
+            ⚡ Desarrollado por <strong className="text-white">José Luis Galán Avilés</strong>
+          </p>
+          <p className="text-space-300 font-medium mb-6">
+            Coordinador de Software – TARS Robotics (UPV)
+          </p>
+          
+          <div className="flex justify-center gap-4">
+            <a 
+              href="https://github.com/jlgalavi" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-700/50 text-slate-300 hover:bg-slate-700 hover:text-white transition-all duration-200 border border-slate-600/50 hover:border-slate-500"
+            >
+              <span className="text-xl">🐙</span>
+              GitHub
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/jose-luis-galán-avilés" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-700/50 text-slate-300 hover:bg-slate-700 hover:text-white transition-all duration-200 border border-slate-600/50 hover:border-slate-500"
+            >
+              <span className="text-xl">💼</span>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer institucional */}
+      <footer className="bg-slate-950 py-12">
+        <div className="container mx-auto max-w-4xl px-6 text-center">
+          {/* Logos */}
+          <div className="flex justify-center items-center gap-8 mb-8">
+            <div className="text-4xl">🤖</div>
+            <div className="text-2xl text-slate-500">•</div>
+            <div className="text-4xl">🏛️</div>
+            <div className="text-2xl text-slate-500">•</div>
+            <div className="text-4xl">💻</div>
+          </div>
+          
+          {/* Copyright */}
+          <p className="text-slate-500 text-sm">
+            © 2025 Academia TARS – Universitat Politècnica de València
+          </p>
+        </div>
       </footer>
     </main>
   );
