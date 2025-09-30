@@ -133,7 +133,8 @@ export default function Home() {
                   alt="José Luis Galán Avilés"
                   width={96}
                   height={96}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-center"
+                  style={{ objectPosition: 'center 35%' }}
                   priority
                 />
               </div>
