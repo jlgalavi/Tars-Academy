@@ -1369,8 +1369,8 @@ export default function GitGitHub() {
             </section>
 
             <TutorialNavigation 
-              previous={{ title: "Terminal Básica", href: "/tutoriales/terminal-basica" }}
-              next={{ title: "Issues y PRs", href: "/tutoriales/issues-y-prs" }}
+              previous={{ title: "💻 Terminal Básica para Robótica", href: "/tutoriales/terminal-basica" }}
+              next={{ title: "🏢 TARS GitHub", href: "/tutoriales/github-primera-pr" }}
             />
             </div>
           </main>

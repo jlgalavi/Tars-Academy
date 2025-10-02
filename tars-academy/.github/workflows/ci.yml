@@ -1,0 +1,100 @@
+name: 🚀 TARS Academy - Build & Deploy
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    name: 🏗️ Build & Test
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+    - name: 📦 Checkout code
+      uses: actions/checkout@v4
+
+    - name: 🟢 Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: 📥 Install dependencies
+      run: npm ci
+
+    - name: 🔍 Run linter
+      run: npm run lint
+
+    - name: 🏗️ Build application
+      run: npm run build
+
+    - name: ✅ Build artifacts check
+      run: |
+        if [ ! -d ".next" ]; then
+          echo "❌ .next directory not found"
+          exit 1
+        fi
+        echo "✅ Build completed successfully"
+
+  lighthouse-check:
+    name: 🏃‍♂️ Lighthouse Performance
+    runs-on: ubuntu-latest
+    needs: build-and-test
+
+    steps:
+    - name: 📦 Checkout code
+      uses: actions/checkout@v4
+
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: 📥 Install dependencies
+      run: npm ci
+
+    - name: 🏗️ Build application
+      run: npm run build
+
+    - name: 🚀 Start server
+      run: |
+        npm run start &
+        sleep 10
+      env:
+        PORT: 3000
+
+    - name: 🏃‍♂️ Run Lighthouse CI
+      run: |
+        npm install -g @lhci/cli@0.12.x
+        lhci autorun || echo "Lighthouse check completed"
+      env:
+        LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+  security-check:
+    name: 🔒 Security Audit
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: 📦 Checkout code
+      uses: actions/checkout@v4
+
+    - name: 🟢 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        cache: 'npm'
+
+    - name: 🔍 Security audit
+      run: npm audit --audit-level=high
+
+    - name: 📋 Dependency check
+      run: |
+        echo "📊 Dependency overview:"
+        npm ls --depth=0

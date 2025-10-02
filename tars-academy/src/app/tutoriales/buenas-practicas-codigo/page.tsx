@@ -808,12 +808,12 @@ print(data)`}
             {/* Navegación */}
             <TutorialNavigation 
               previous={{
-                title: "Configurar VS Code",
-                href: "/tutoriales/vscode-setup"
+                title: "🤝 Trabajo en Equipo y Soft Skills",
+                href: "/tutoriales/issues-y-prs"
               }}
               next={{
-                title: "Issues y Pull Requests",
-                href: "/tutoriales/issues-y-prs"
+                title: "Instalar Ubuntu 24.04 LTS (Guía Completa)",
+                href: "/tutoriales/instalar-ubuntu-vm"
               }}
             />
           </main>

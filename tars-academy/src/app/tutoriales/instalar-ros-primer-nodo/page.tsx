@@ -485,8 +485,8 @@ export default function InstalarROSPrimerNodo() {
             </div>
 
             <TutorialNavigation 
-              previous={{ title: "Instalar Ubuntu VM", href: "/tutoriales/instalar-ubuntu-vm" }}
-              next={{ title: "VS Code Setup", href: "/tutoriales/vscode-setup" }}
+              previous={{ title: "Instalar Ubuntu 24.04 LTS (Guía Completa)", href: "/tutoriales/instalar-ubuntu-vm" }}
+              next={{ title: "💻 Configura tu Setup para Robótica", href: "/tutoriales/vscode-setup" }}
             />
           </main>
 

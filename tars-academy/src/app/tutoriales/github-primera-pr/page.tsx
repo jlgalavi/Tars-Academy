@@ -1016,8 +1016,8 @@ export default function GitHubOrganizacion() {
               </section>
             {/* Navegación */}
             <TutorialNavigation 
-              previous={{ title: "Git & GitHub", href: "/tutoriales/git-github" }}
-              next={{ title: "Issues y PRs", href: "/tutoriales/issues-y-prs" }}
+              previous={{ title: "📚 Git & GitHub Básico", href: "/tutoriales/git-github" }}
+              next={{ title: "🤝 Trabajo en Equipo y Soft Skills", href: "/tutoriales/issues-y-prs" }}
             />
             </div>
           </div>

@@ -790,11 +790,11 @@ export default function InstalarUbuntuVM() {
         <div className="mt-16">
           <TutorialNavigation 
             previous={{
-              title: "Git y GitHub Desktop",
-              href: "/tutoriales/github-primera-pr"
+              title: "🚀 Buenas Prácticas de Programación - TARS Robotics",
+              href: "/tutoriales/buenas-practicas-codigo"
             }}
             next={{
-              title: "Instalar ROS 2 y primer nodo",
+              title: "🤖 Instalar ROS 2 Jazzy + Primer Nodo",
               href: "/tutoriales/instalar-ros-primer-nodo"
             }}
           />

@@ -766,11 +766,11 @@ export default function TrabajoEnEquipo() {
       
       <TutorialNavigation 
         previous={{
-          title: "Git & GitHub",
-          href: "/tutoriales/git-github"
+          title: "🏢 TARS GitHub",
+          href: "/tutoriales/github-primera-pr"
         }}
         next={{
-          title: "Buenas Prácticas de Código",
+          title: "🚀 Buenas Prácticas de Programación - TARS Robotics",
           href: "/tutoriales/buenas-practicas-codigo"
         }}
       />

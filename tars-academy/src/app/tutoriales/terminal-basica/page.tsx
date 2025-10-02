@@ -750,8 +750,8 @@ export default function TerminalBasica() {
             </div>
 
             <TutorialNavigation 
-              previous={{ title: "VS Code Setup", href: "/tutoriales/vscode-setup" }}
-              next={{ title: "Git & GitHub", href: "/tutoriales/git-github" }}
+              previous={{ title: "💻 Configura tu Setup para Robótica", href: "/tutoriales/vscode-setup" }}
+              next={{ title: "📚 Git & GitHub Básico", href: "/tutoriales/git-github" }}
             />
           </main>
 

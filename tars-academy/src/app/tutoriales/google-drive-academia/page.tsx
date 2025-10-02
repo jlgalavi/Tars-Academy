@@ -439,12 +439,12 @@ export default function GoogleDriveAcademia() {
             {/* Navegación */}
             <TutorialNavigation 
               previous={{
-                title: "Terminal básica",
-                href: "/tutoriales/terminal-basica"
+                title: "🤝 Trabajo en Equipo y Soft Skills",
+                href: "/tutoriales/issues-y-prs"
               }}
               next={{
-                title: "Git & GitHub",
-                href: "/tutoriales/git-github"
+                title: "Instalar Ubuntu 24.04 LTS (Guía Completa)",
+                href: "/tutoriales/instalar-ubuntu-vm"
               }}
             />
           </main>

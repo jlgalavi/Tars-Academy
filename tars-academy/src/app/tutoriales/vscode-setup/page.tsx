@@ -1010,8 +1010,8 @@ export default function VSCodeSetup() {
             </div>
 
             <TutorialNavigation 
-              previous={{ title: "Instalar Ubuntu (VM)", href: "/tutoriales/instalar-ubuntu-vm" }}
-              next={{ title: "Terminal Básica", href: "/tutoriales/terminal-basica" }}
+              previous={{ title: "Instalar Ubuntu 24.04 LTS (Guía Completa)", href: "/tutoriales/instalar-ubuntu-vm" }}
+              next={{ title: "💻 Terminal Básica para Robótica", href: "/tutoriales/terminal-basica" }}
             />
           </main>
 
