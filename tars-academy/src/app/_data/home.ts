@@ -4,6 +4,21 @@ export const quickStarts = [
   { id: "ros-setup", title: "Instalar ROS2 Jazzy", minutes: 25, href: "/tutoriales/instalar-ros-primer-nodo", disabled: false },
 ];
 
+export const programasIntensivos = [
+  { 
+    id: "pcb-kicad", 
+    title: "Diseño de PCBs con KiCad", 
+    href: "/cursos/diseno-pcbs-kicad", 
+    desc: "Curso intensivo de 4 semanas para dominar el diseño de placas de circuito impreso.",
+    duration: "4 semanas",
+    modules: 5,
+    level: "Intermedio",
+    team: "Hardware",
+    icon: "⚡",
+    disabled: false 
+  },
+];
+
 export const basics = [
   { id: "google-drive", title: "Uso de Google Drive", href: "/tutoriales/google-drive-academia", desc: "Carpetas, compartir y permisos.", disabled: false },
   { id: "buenas-practicas", title: "Buenas prácticas de código", href: "/tutoriales/buenas-practicas-codigo", desc: "Estilo, linters y convenciones.", disabled: false },

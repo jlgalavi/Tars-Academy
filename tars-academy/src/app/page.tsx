@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Card } from "@/components/cards";
-import { basics } from "./_data/home";
+import { Card, CourseCard } from "@/components/cards";
+import { basics, programasIntensivos } from "./_data/home";
 import SpaceParticles from "@/components/SpaceParticles";
 
 export default function Home() {
@@ -65,6 +65,35 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Sección de Programas Intensivos */}
+      <section className="relative py-20 z-10">
+        <div className="container mx-auto max-w-6xl px-6">
+          <h2 className="text-4xl font-bold text-white text-center mb-4">
+            🚀 Programas Intensivos
+          </h2>
+          <p className="text-slate-400 text-center mb-12 max-w-3xl mx-auto">
+            Formación especializada y en profundidad para equipos específicos. Cursos completos de varias semanas con proyectos prácticos y entregas semanales.
+          </p>
+          
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto">
+            {programasIntensivos.map((curso) => (
+              <CourseCard 
+                key={curso.id}
+                title={curso.title}
+                href={curso.href}
+                description={curso.desc}
+                duration={curso.duration}
+                modules={curso.modules}
+                level={curso.level}
+                team={curso.team}
+                icon={curso.icon}
+                disabled={curso.disabled}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Sección imagen + texto de presentación */}
       <section className="relative py-20 z-10">
         <div className="container mx-auto max-w-6xl px-6">
@@ -80,13 +109,15 @@ export default function Home() {
             {/* Columna derecha - Texto */}
             <div className="text-lg text-slate-300 leading-relaxed">
               <p className="mb-6">
-                🤖 <strong className="text-white">Academia TARS</strong> es tu guía interna de software.
+                🤖 <strong className="text-white">Academia TARS</strong> es tu guía interna de formación.
               </p>
               <p className="mb-6">
-                Aquí encontrarás tutoriales básicos y prácticos para que cualquier miembro del equipo pueda empezar a trabajar rápidamente en el proyecto ERC.
+                Desde tutoriales básicos hasta programas intensivos especializados, todo lo necesario para 
+                que cualquier miembro del equipo pueda contribuir al proyecto ERC.
               </p>
               <p className="text-slate-400">
-                Desde control de versiones hasta configuración de entornos, todo lo necesario para contribuir al desarrollo del rover.
+                Formación práctica en control de versiones, configuración de entornos, diseño de hardware 
+                y todas las habilidades técnicas que necesitas.
               </p>
             </div>
           </div>
