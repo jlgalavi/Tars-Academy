@@ -65,6 +65,63 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Sección de Novedad - Último tutorial */}
+      <section className="relative py-16 z-10">
+        <div className="container mx-auto max-w-4xl px-6">
+          <div className="relative bg-gradient-to-br from-blue-900/40 via-purple-900/40 to-blue-900/40 backdrop-blur-sm border-2 border-blue-500/50 rounded-3xl p-8 overflow-hidden shadow-2xl">
+            {/* Badge de "Nuevo" */}
+            <div className="absolute top-6 right-6">
+              <div className="bg-green-500 text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg animate-pulse">
+                ✨ NUEVO
+              </div>
+            </div>
+
+            {/* Contenido */}
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-5xl">📋</span>
+                <div>
+                  <p className="text-blue-300 text-sm font-semibold uppercase tracking-wider">Último tutorial añadido</p>
+                  <h2 className="text-3xl font-bold text-white">Sistema de Tareas con GitHub</h2>
+                </div>
+              </div>
+
+              <p className="text-slate-200 text-lg mb-6 leading-relaxed">
+                Descubre el nuevo sistema de gestión de tareas del equipo basado en GitHub Issues y Projects. 
+                Aprende a gestionar tareas, comunicarte efectivamente y mantener la trazabilidad de todo el trabajo del equipo.
+              </p>
+
+              <div className="flex flex-wrap gap-3 mb-6">
+                <span className="inline-flex items-center gap-2 bg-slate-800/60 text-slate-200 px-3 py-1 rounded-full text-sm border border-slate-600/50">
+                  <span>🐙</span>
+                  GitHub
+                </span>
+                <span className="inline-flex items-center gap-2 bg-slate-800/60 text-slate-200 px-3 py-1 rounded-full text-sm border border-slate-600/50">
+                  <span>📊</span>
+                  Gestión
+                </span>
+                <span className="inline-flex items-center gap-2 bg-slate-800/60 text-slate-200 px-3 py-1 rounded-full text-sm border border-slate-600/50">
+                  <span>⭐</span>
+                  Esencial
+                </span>
+              </div>
+
+              <Link 
+                href="/tutoriales/sistema-tareas-github" 
+                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-blue-500/50 hover:scale-105"
+              >
+                🚀 Empezar ahora
+                <span className="text-xl">→</span>
+              </Link>
+            </div>
+
+            {/* Efecto de brillo decorativo */}
+            <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
+            <div className="absolute -top-20 -left-20 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"></div>
+          </div>
+        </div>
+      </section>
+
       {/* Sección de Programas Intensivos */}
       <section className="relative py-20 z-10">
         <div className="container mx-auto max-w-6xl px-6">

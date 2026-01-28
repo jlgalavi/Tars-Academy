@@ -26,5 +26,6 @@ export const basics = [
   { id: "terminal-basica", title: "Terminal básica", href: "/tutoriales/terminal-basica", desc: "Comandos que usamos a diario.", disabled: false },
   { id: "git-github", title: "Git & GitHub", href: "/tutoriales/git-github", desc: "Control de versiones básico.", disabled: false },
   { id: "trabajo-equipo", title: "Trabajo en Equipo", href: "/tutoriales/issues-y-prs", desc: "Soft skills y colaboración efectiva.", disabled: false },
+  { id: "sistema-tareas", title: "Sistema de Tareas", href: "/tutoriales/sistema-tareas-github", desc: "GitHub Issues y Projects para gestión de tareas.", disabled: false },
   { id: "maquina-remota-upv", title: "Máquina Remota UPV", href: "/tutoriales/maquina-remota-upv", desc: "Acceso y uso correcto del servidor compartido.", disabled: false },
 ];
